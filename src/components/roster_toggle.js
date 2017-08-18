@@ -11,7 +11,7 @@ const RosterEntry = (props) => {
         <p>Hire Recruit <text className="cost-ok">§50</text> ></p>
       </div>
     );
-  } else if (props.soldiers.length <= 18) {
+  } else if (props.soldiers.length >= 18) {
     recruitButton = (
     <div className="side-option side-option-disabled">
       <p><text className="cost-error">Barracks Full</text> ></p>
