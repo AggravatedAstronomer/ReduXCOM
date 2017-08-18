@@ -136,7 +136,7 @@ const store = createStore(
     missionInProgress: false,
     missionTurnCounter: 0,
     missionNumber: 0,
-    credits: 5000,
+    credits: 500,
     alienAlloys: 0,
     soldiersOnMission: [],
     soldiers: [
