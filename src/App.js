@@ -8,6 +8,7 @@ import MissionMenus from './components/mission_menus';
 import GameArea from './components/game_area';
 import MissionArea from './components/mission_area';
 import UserName from './components/user_name';
+import Deployment from './components/deployment';
 
 const App = (props) => {
   let sideMenus = null;
@@ -29,7 +30,7 @@ const App = (props) => {
           <GameArea/>
         </div>
         <div className="col-sm-3 side-menu side-menu-right">
-
+          <Deployment/>
         </div>
       </div>
       <MissionArea/>

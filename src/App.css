@@ -34,6 +34,14 @@ p {
   margin: 0px;
 }
 
+.cost-ok {
+  color: #77fc6f;
+}
+
+.cost-error {
+  color: red;
+}
+
 .title {
   font-family: 'Techno';
   color: #bafaff;
@@ -137,6 +145,7 @@ p {
 .roster-entry {
   font-size: 12px;
   margin: 0px;
+  margin-left: 10px;
 }
 
 thead {
@@ -144,8 +153,12 @@ thead {
   margin: 0px;
 }
 
-table{
-    width: 960px;
+#roster-table{
+    width: 890px;
+}
+
+#deployment-table {
+  width: 400px;
 }
 
 td {
@@ -183,7 +196,7 @@ td {
   font-family: 'Techno';
   text-align: center;
   font-size: 70px;
-  z-index: 2;
+  width: 100%;
 }
 
 #mission-area-contents {
@@ -193,10 +206,12 @@ td {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 960px;
+  width: 100%;
   height: 540px;
   max-width: 1850px;
   font-size: 24px;
+  z-index: 2;
+  padding-left: 50px;
 }
 
 #mission-area-image {
@@ -208,6 +223,44 @@ td {
   height: auto;
   opacity:0.6;
   z-index: 1;
+}
+
+.mission-sub-heading {
+  font-family: 'Techno';
+  font-size: 50px;
+}
+
+#deployment-title {
+  font-family: 'Techno';
+  font-size: 50px;
+}
+
+#deployment-selection {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.soldier-line {
+  text-align: center;
+  text-shadow: 0px 0px 5px cyan;
+  background: rgba(0,0,0,0.2);
+  padding: 30px;
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.soldier-line:hover {
+  color: #77fc6f;
+}
+
+.soldier-line:active {
+  background-color: #77fc6f;
+  color: black;
 }
 
 .welcome {
@@ -376,8 +429,8 @@ td {
 .side-option p {
   width: 100%;
   position: relative;
-  bottom: 15px;
-  font-size: 24px;
+  bottom: 10px;
+  font-size: 16px;
 }
 
 .side-option:hover {
@@ -403,7 +456,7 @@ td {
   border-top: 10px solid transparent;
   background: #111;
   padding: 30px;
-  width: 90%;
+  width: 80%;
   height: 20px;
   margin-bottom: 50px;
   cursor: pointer;
@@ -416,8 +469,8 @@ td {
 .side-option-disabled p {
   width: 100%;
   position: relative;
-  bottom: 15px;
-  font-size: 24px;
+  bottom: 10px;
+  font-size: 16px;
   color: #333;
 }
 

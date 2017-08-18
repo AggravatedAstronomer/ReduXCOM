@@ -3,15 +3,13 @@ import '../App.css';
 import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
-const RosterEntry = (props) => {
+const DeploymentEntry = (props) => {
     return (
       <tr onClick={(e) => props.deploySoldier(props.obj) } className="soldier-line">
         <td><p className="roster-entry">{props.obj.name}</p></td>
         <td><p className="roster-entry">{props.obj.class}</p></td>
-        <td><p className="roster-entry">{props.obj.rank}</p></td>
-        <td><p className="roster-entry">{props.obj.kills}</p></td>
-        <td><p className="roster-entry">{props.obj.status}</p></td>
       </tr>
+
     );
   }
 
@@ -27,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RosterEntry);
+export default connect(mapStateToProps, mapDispatchToProps)(DeploymentEntry);

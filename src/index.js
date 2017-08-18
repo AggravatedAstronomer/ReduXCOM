@@ -17,6 +17,36 @@ const reducer = (state, action) => {
       return state = {...state, editingUser: true};
     case 'viewRoster':
       return state = {...state, viewingRoster: !state.viewingRoster};
+    case 'recruitSoldier':
+      let untakenNames = action.payload.soldierPool
+      state.soldiers.forEach(function(soldier) {
+        untakenNames.filter(function(name) {
+          if (soldier.name === name) {
+            untakenNames.splice(untakenNames.indexOf(name), 1)
+          }
+        });
+      });
+      let randomName = untakenNames[Math.floor(Math.random() * untakenNames.length)];
+
+      let recruit = {
+        name: randomName,
+        rank: 1,
+        class: "Rookie",
+        status: "Healthy",
+        kills: 0,
+      }
+      return state = {...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50};
+    case 'deploySoldier':
+      if (state.soldiersOnMission.indexOf(action.payload) == -1) {
+        let newSoldiers = [...state.soldiers];
+        newSoldiers.splice(newSoldiers.indexOf(action.payload), 1);
+        return state = {...state, soldiersOnMission: state.soldiersOnMission.concat([action.payload]), soldiers: newSoldiers}
+      } else {
+        let newDeployment = [...state.soldiersOnMission];
+        newDeployment.splice(newDeployment.indexOf(action.payload), 1);
+        return state = {...state, soldiersOnMission: newDeployment, soldiers: state.soldiers.concat([action.payload])};
+      }
+      return state;
     case 'launchMission':
       return state = {...state, missionInProgress: true};
     case 'nextTurn':
@@ -48,9 +78,11 @@ const reducer = (state, action) => {
         missionInProgress: false,
         missionTurnCounter: 0,
         missionNumber: 0,
+        credits: 500,
+        soldiersOnMission: [],
         soldiers: [
           {
-            name: "Patient Zer0",
+            name: "Patientzer0",
             rank: 1,
             class: "Rookie",
             status: "Healthy",
@@ -104,11 +136,12 @@ const store = createStore(
     missionInProgress: false,
     missionTurnCounter: 0,
     missionNumber: 0,
-    credits: 500,
+    credits: 5000,
     alienAlloys: 0,
+    soldiersOnMission: [],
     soldiers: [
       {
-        name: "Patient Zer0",
+        name: "Patientzer0",
         rank: 1,
         class: "Rookie",
         status: "Healthy",

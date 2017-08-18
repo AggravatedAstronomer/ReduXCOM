@@ -11,7 +11,13 @@ const MissionArea = (props) => {
           <img id="mission-area-image" src={require('../img/objectives.jpg')}/>
         </div>
         <div id="mission-area-contents">
-          <p id="mission-title">Objectives</p>
+          <p id="mission-title">Operation Bleeding Edge</p>
+          <div className="col-sm-4">
+            <p className="mission-sub-heading">Objectives</p>
+          </div>
+          <div className="col-sm-8">
+            <p className="mission-sub-heading">Menace 1-5</p>
+          </div>
         </div>
       </div>
     );

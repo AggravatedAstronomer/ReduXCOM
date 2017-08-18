@@ -7,7 +7,7 @@ import RosterToggle from './roster_toggle'
 const StartOrContinue = (props) => {
   if (props.missionNumber > 0) {
     let nextMission = <p></p>
-    if (props.viewingRoster === false) {
+    if (props.soldiersOnMission > 0) {
       nextMission = <div onClick={(e) => props.launchMission() } className="side-option"><p>Next Mission ></p></div>
     } else {
       nextMission = <div className="side-option side-option-disabled"><p>Next Mission ></p></div>
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
   return {
     missionNumber: state.missionNumber,
     user: state.user,
-    viewingRoster: state.viewingRoster,
+    soldiersOnMission: state.soldiersOnMission.length,
   }
 }
 
@@ -45,7 +45,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     launchMission: () => dispatch(actions.launchMission()),
     startCampaign: () => dispatch(actions.startCampaign()),
-    viewRoster: () => dispatch(actions.viewRoster()),
   }
 }
 

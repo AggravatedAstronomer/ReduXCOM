@@ -4,10 +4,33 @@ import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
 const RosterEntry = (props) => {
+  let recruitButton = null
+  if (props.credits >= 50 && props.soldiers.length < 18) {
+    recruitButton = (
+      <div onClick={(e) => props.recruitSoldier() } className="side-option">
+        <p>Hire Recruit <text className="cost-ok">§50</text> ></p>
+      </div>
+    );
+  } else if (props.soldiers.length <= 18) {
+    recruitButton = (
+    <div className="side-option side-option-disabled">
+      <p><text className="cost-error">Barracks Full</text> ></p>
+    </div>
+    );
+  } else {
+    recruitButton = (
+    <div className="side-option side-option-disabled">
+      <p> Hire Recruit <text className="cost-error">§50</text> ></p>
+    </div>
+    );
+  }
   if (props.viewingRoster === true) {
     return (
-      <div onClick={(e) => props.viewRoster() } className="side-option">
-        <p>Main View ></p>
+      <div>
+        <div onClick={(e) => props.viewRoster() } className="side-option">
+          <p>Main View ></p>
+        </div>
+        {recruitButton}
       </div>
     );
   } else {
@@ -23,12 +46,14 @@ const mapStateToProps = (state) => {
   return {
     soldiers: state.soldiers,
     viewingRoster: state.viewingRoster,
+    credits: state.credits,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     viewRoster: () => dispatch(actions.viewRoster()),
+    recruitSoldier: () => dispatch(actions.recruitSoldier()),
   }
 }
 

@@ -46,17 +46,20 @@ const GameArea = (props) => {
         <div id="game-area-contents">
       <div id="roster-container">
         <p id="roster-title">Roster</p>
-        <table>
-          <tr>
-            <th className="roster-header">Name</th>
-            <th className="roster-header">Class</th>
-            <th className="roster-header">Rank</th>
-            <th className="roster-header">Kills</th>
-            <th className="roster-header">Status</th>
-          </tr>
-          {props.soldiers.map(function(soldier, i){
-            return <RosterEntry obj={soldier} key={i} />
-          })}
+        <p className="pull-right">Credits: §{props.credits}</p>
+        <table id="roster-table">
+          <tbody>
+            <tr>
+              <th className="roster-header">Name</th>
+              <th className="roster-header">Class</th>
+              <th className="roster-header">Rank</th>
+              <th className="roster-header">Kills</th>
+              <th className="roster-header">Status</th>
+            </tr>
+            {props.soldiers.map(function(soldier, i){
+              return <RosterEntry obj={soldier} key={i} />
+            })}
+          </tbody>
         </table>
       </div>
     </div>
