@@ -4,8 +4,12 @@ import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
 const RosterEntry = (props) => {
+  let rosterClass = ''
+  if (props.soldiersOnMission.length == props.maxDeployedSoldiers) {
+    rosterClass = ' max-deployed';
+  }
     return (
-      <tr onClick={(e) => props.deploySoldier(props.obj) } className="soldier-line">
+      <tr onClick={(e) => props.deploySoldier(props.obj) } className={"soldier-line" + rosterClass}>
         <td><p className="roster-entry">{props.obj.name}</p></td>
         <td><p className="roster-entry">{props.obj.class}</p></td>
         <td><p className="roster-entry">{props.obj.rank}</p></td>
@@ -17,7 +21,8 @@ const RosterEntry = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-
+    soldiersOnMission: state.soldiersOnMission,
+    maxDeployedSoldiers: state.maxDeployedSoldiers,
   }
 }
 

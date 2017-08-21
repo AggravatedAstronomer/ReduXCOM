@@ -148,6 +148,14 @@ p {
   margin-left: 10px;
 }
 
+.soldier-line.max-deployed:hover {
+  color: red;
+}
+
+.soldier-line.max-deployed:active {
+  background-color: red;
+}
+
 thead {
   padding: 0px;
   margin: 0px;
@@ -232,7 +240,95 @@ td {
 
 #deployment-title {
   font-family: 'Techno';
-  font-size: 50px;
+  font-size: 30px;
+}
+
+.green-deploy {
+  font-size: 25px;
+  color: #77fc6f;
+}
+
+.yellow-deploy {
+  font-size: 25px;
+  color: yellow;
+}
+
+.red-deploy {
+  font-size: 25px;
+  color: red;
+}
+
+.healthy {
+  color: #77fc6f;
+}
+
+.wounded {
+  color: yellow;
+}
+
+.gravely-wounded {
+  color: orange;
+}
+
+.dead {
+  color: red;
+}
+
+.mission-soldier-row {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.mission-soldier {
+  text-align: left;
+  width: 275px;
+}
+
+.soldier-info {
+  width: 275px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.ability-info {
+  font-size: 12px;
+  text-align: center;
+}
+
+.fire {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.overwatch {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.hunker {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.grenade {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.move-1 {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.move-2 {
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
 }
 
 #deployment-selection {

@@ -37,16 +37,17 @@ const reducer = (state, action) => {
       }
       return state = {...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50};
     case 'deploySoldier':
-      if (state.soldiersOnMission.indexOf(action.payload) == -1) {
+      if (state.soldiersOnMission.indexOf(action.payload) == -1 && ((state.soldiersOnMission.length < state.maxDeployedSoldiers))) {
         let newSoldiers = [...state.soldiers];
         newSoldiers.splice(newSoldiers.indexOf(action.payload), 1);
-        return state = {...state, soldiersOnMission: state.soldiersOnMission.concat([action.payload]), soldiers: newSoldiers}
-      } else {
+        return state = {...state, soldiersOnMission: state.soldiersOnMission.concat([action.payload]), soldiers: newSoldiers};
+      } else if (state.soldiersOnMission.indexOf(action.payload) != -1) {
         let newDeployment = [...state.soldiersOnMission];
         newDeployment.splice(newDeployment.indexOf(action.payload), 1);
         return state = {...state, soldiersOnMission: newDeployment, soldiers: state.soldiers.concat([action.payload])};
+      } else {
+        return state;
       }
-      return state;
     case 'launchMission':
       return state = {...state, missionInProgress: true};
     case 'nextTurn':
@@ -80,6 +81,7 @@ const reducer = (state, action) => {
         missionNumber: 0,
         credits: 500,
         soldiersOnMission: [],
+        maxDeployedSoldiers: 4,
         soldiers: [
           {
             name: "Patientzer0",
@@ -139,6 +141,7 @@ const store = createStore(
     credits: 500,
     alienAlloys: 0,
     soldiersOnMission: [],
+    maxDeployedSoldiers: 4,
     soldiers: [
       {
         name: "Patientzer0",
@@ -151,14 +154,14 @@ const store = createStore(
         name: "Tegularius",
         rank: 1,
         class: "Rookie",
-        status: "Healthy",
+        status: "Wounded",
         kills: 0,
       },
       {
         name: "Azimuth",
         rank: 1,
         class: "Rookie",
-        status: "Healthy",
+        status: "Gravely Wounded",
         kills: 0,
       },
       {
