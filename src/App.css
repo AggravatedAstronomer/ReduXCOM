@@ -202,6 +202,7 @@ td {
 #mission-title {
   position: relative;
   font-family: 'Techno';
+  text-shadow: 0px 8px 5px black;
   text-align: center;
   font-size: 70px;
   width: 100%;
@@ -209,7 +210,6 @@ td {
 
 #mission-area-contents {
   position: absolute;
-  text-shadow: 0px 8px 5px black;
   top: 0;
   bottom: 0;
   left: 0;
@@ -231,11 +231,6 @@ td {
   height: auto;
   opacity:0.6;
   z-index: 1;
-}
-
-.mission-sub-heading {
-  font-family: 'Techno';
-  font-size: 50px;
 }
 
 #deployment-title {
@@ -276,18 +271,42 @@ td {
 
 .mission-soldier-row {
   padding-bottom: 20px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .mission-soldier {
   text-align: left;
-  width: 275px;
+  width: 350px;
 }
 
 .soldier-info {
-  width: 275px;
+  width: 350px;
   font-size: 12px;
   text-align: left;
+}
+
+.soldier-actions {
+  font-size: 30px;
+}
+
+.ability {
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  font-size: 20px;
+}
+
+.ability:hover {
+  color: #77fc6f;
+  text-shadow: 0px 0px 50px black;
+  cursor: pointer;
+}
+
+.ability:active {
+  color: black;
+  text-shadow: 0px 0px 5px #77fc6f;
+  cursor: pointer;
 }
 
 .ability-info {
@@ -298,37 +317,31 @@ td {
 .fire {
   width: 100px;
   text-align: center;
-  font-size: 30px;
 }
 
 .overwatch {
   width: 100px;
   text-align: center;
-  font-size: 30px;
 }
 
 .hunker {
-  width: 100px;
+  width: 200px;
   text-align: center;
-  font-size: 30px;
 }
 
 .grenade {
-  width: 100px;
+  width: 200px;
   text-align: center;
-  font-size: 30px;
 }
 
 .move-1 {
   width: 100px;
   text-align: center;
-  font-size: 30px;
 }
 
 .move-2 {
   width: 100px;
   text-align: center;
-  font-size: 30px;
 }
 
 #deployment-selection {

@@ -21,22 +21,28 @@ const RosterEntry = (props) => {
     return (
       <div className="mission-soldier-row">
         <tr>
-          <td className="mission-soldier">{props.obj.name}</td>
-          <td className="fire"><span className="glyphicon glyphicon-screenshot"></span></td>
-          <td className="overwatch"><span className="glyphicon glyphicon-eye-open"></span></td>
-          <td className="hunker"><span className="glyphicon glyphicon-tower"></span></td>
-          <td className="grenade"><span className="glyphicon glyphicon glyphicon-fire"></span></td>
-          <td className="move-1"><span className="glyphicon glyphicon-play"></span></td>
-          <td className="move-2"><span className="glyphicon glyphicon-forward"></span></td>
-        </tr>
-        <tr>
-          <td className="soldier-info">{props.obj.class} - {status}</td>
-          <td className="ability-info">Fire</td>
-          <td className="ability-info">Overwatch</td>
-          <td className="ability-info">Hunker Down</td>
-          <td className="ability-info">Throw Grenade</td>
-          <td className="ability-info">Move</td>
-          <td className="ability-info">Dash</td>
+          <td className="mission-soldier">{props.obj.name}<br></br>
+            <text className="soldier-info">{props.obj.class} - {status}</text><br></br>
+            <text className="soldier-actions">>></text>
+          </td>
+          <td className="ability fire"><span className="glyphicon glyphicon-screenshot"></span><br></br>
+            <text className="ability-info">Fire</text>
+          </td>
+          <td className="ability overwatch"><span className="glyphicon glyphicon-eye-open"></span><br></br>
+            <text className="ability-info">Overwatch</text>
+          </td>
+          <td className="ability hunker"><span className="glyphicon glyphicon-tower"></span><br></br>
+            <text className="ability-info">Hunker Down</text>
+          </td>
+          <td className="ability grenade"><span className="glyphicon glyphicon glyphicon-fire"></span><br></br>
+            <text className="ability-info">Throw Grenade</text>
+          </td>
+          <td className="ability move-1"><span className="glyphicon glyphicon-play"></span><br></br>
+            <text className="ability-info">Move</text>
+          </td>
+          <td className="ability move-2"><span className="glyphicon glyphicon-forward"></span><br></br>
+            <text className="ability-info">Dash</text>
+          </td>
         </tr>
       </div>
     );

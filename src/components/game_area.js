@@ -13,10 +13,10 @@ const GameArea = (props) => {
           <img id="game-area-image" src={require('../img/sectoid_thm.jpg')}></img>
         </div>
         <div id="game-area-contents">
-          <div className="col-sm-9">
+          <div className="col-sm-4">
           </div>
-          <div className="col-sm-3">
-            actions here
+          <div className="col-sm-8">
+            mission flow here
           </div>
         </div>
       </div>

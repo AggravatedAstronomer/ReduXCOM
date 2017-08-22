@@ -12,12 +12,7 @@ const MissionArea = (props) => {
           <img id="mission-area-image" src={require('../img/objectives.jpg')}/>
         </div>
         <div id="mission-area-contents">
-          <p id="mission-title">Operation Bleeding Edge</p>
-          <div className="col-sm-4">
-            <p className="mission-sub-heading">Objectives</p>
-          </div>
-          <div className="col-sm-8">
-            <p className="mission-sub-heading">Menace 1-5</p>
+          <p id="mission-title">Menace 1-5</p>
             <table id="menace-1-5">
               <tbody>
                 {props.soldiersOnMission.map(function(soldier, i){
@@ -25,7 +20,6 @@ const MissionArea = (props) => {
                 })}
               </tbody>
             </table>
-          </div>
         </div>
       </div>
     );
