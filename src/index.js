@@ -171,7 +171,8 @@ const store = createStore(
         status: "Healthy",
         kills: 0,
       },
-    ]
+    ],
+    aliensVisible: []
   },
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

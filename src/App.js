@@ -9,6 +9,7 @@ import GameArea from './components/game_area';
 import MissionArea from './components/mission_area';
 import UserName from './components/user_name';
 import Deployment from './components/deployment';
+import Hostile from './components/hostile';
 
 const App = (props) => {
   let sideMenus = null;
@@ -33,6 +34,11 @@ const App = (props) => {
           <Deployment/>
         </div>
       </div>
+      <div className="hostiles">
+        {props.aliensVisible.map(function(alien, i){
+          return <Hostile obj={alien} key={i} />
+        })}
+      </div>
       <MissionArea/>
     </div>
   );
@@ -44,6 +50,7 @@ const mapStateToProps = (state) => {
     missionNumber: state.missionNumber,
     soldiers: state.soldiers,
     missionInProgress: state.missionInProgress,
+    aliensVisible: state.aliensVisible,
   };
 }
 

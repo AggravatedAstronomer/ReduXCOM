@@ -66,7 +66,7 @@ p {
 }
 
 .main-area {
-  height: 800px;
+  height: 750px;
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, #293c49 , black); /* For Safari 5.1 to 6.0 */
@@ -171,6 +171,35 @@ thead {
 
 td {
   text-align: left;
+}
+
+.hostiles {
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #293c49;
+  background: #293c49; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #293c49 , black); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #293c49 , black); /* Standard syntax */
+}
+
+.visible-alien-container {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.visible-alien {
+  height: 100px;
+  width: auto;
+}
+
+.alien-info {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Techno';
 }
 
 .mission-area {
@@ -478,7 +507,7 @@ td {
 }
 
 .side-menu {
-  height: 700px;
+  height: 600px;
   padding-top: 50px;
   padding-bottom: 100px;
 }
@@ -502,7 +531,7 @@ td {
 
 .col-sm-6.side-logo {
   padding-top: 50px;
-  height: 700px;
+  height: 600px;
   z-index: 0;
   padding-bottom: 100px;
   width: 960px;
