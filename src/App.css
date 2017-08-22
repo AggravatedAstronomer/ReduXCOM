@@ -267,6 +267,16 @@ td {
   font-size: 30px;
 }
 
+#operation-title {
+  font-size: 30px;
+  font-family: 'Techno';
+  padding-top: 50px;
+}
+
+#operation-name {
+  font-size: 15px;
+}
+
 .green-deploy {
   font-size: 25px;
   color: #77fc6f;
@@ -280,6 +290,22 @@ td {
 .red-deploy {
   font-size: 25px;
   color: red;
+}
+
+.easy-mission {
+  color: #77fc6f;
+}
+
+.moderate-mission {
+  color: yellow;
+}
+
+.difficult-mission {
+  color: red;
+}
+
+.very-difficult-mission {
+  color: darkred;
 }
 
 .healthy {

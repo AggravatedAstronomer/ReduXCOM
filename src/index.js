@@ -172,7 +172,11 @@ const store = createStore(
         kills: 0,
       },
     ],
-    aliensVisible: []
+    aliensVisible: [],
+    nextMission: {
+      name: 'Bold Promise',
+      difficulty: 'Easy'
+    },
   },
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
