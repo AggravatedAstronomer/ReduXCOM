@@ -21,7 +21,7 @@ const GameArea = (props) => {
         </div>
       </div>
     );
-  } else if (props.missionNumber > 0 && props.viewingRoster === false ) {
+  } else if (props.missionNumber > 0 && props.viewingRoster === false && props.postMissionScreen === false ) {
     return (
       <div className="game-area">
         <div className="game-area-image-container">
@@ -65,6 +65,36 @@ const GameArea = (props) => {
     </div>
   </div>
     )
+  } else if (props.postMissionScreen) {
+    return (
+      <div className="game-area">
+        <div className="game-area-image-container">
+          <img id="game-area-image" src={require('../img/firebrand.png')}></img>
+        </div>
+        <div id="game-area-contents">
+      <div id="roster-container">
+        <p id="roster-title">Debreifing</p>
+        <p id="debriefing-operation">Operation {props.prevMission.name}</p>
+        <p>Credits: §{props.credits}</p>
+        <p>Alloys: {props.alienAlloys}</p>
+        <table id="roster-table">
+          <tbody>
+            <tr>
+              <th className="roster-header">Name</th>
+              <th className="roster-header">Class</th>
+              <th className="roster-header">Rank</th>
+              <th className="roster-header">Kills</th>
+              <th className="roster-header">Status</th>
+            </tr>
+            {props.soldiers.map(function(soldier, i){
+              return <RosterEntry obj={soldier} key={i} />
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    )
   } else {
     return (
       <img id="xcom-alpha-logo" src={require('../img/xcom_alpha.png')}/>
@@ -78,8 +108,10 @@ const mapStateToProps = (state) => {
     credits: state.credits,
     alienAlloys: state.alienAlloys,
     viewingRoster: state.viewingRoster,
+    postMissionScreen: state.postMissionScreen,
     soldiers: state.soldiers,
     missionInProgress: state.missionInProgress,
+    prevMission: state.prevMission,
   }
 }
 

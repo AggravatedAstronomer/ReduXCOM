@@ -18,11 +18,10 @@ const MissionArea = (props) => {
     operationUI = (
       <div>
         <div className="col-sm-3"></div>
-        <div className="col-sm-6" id="next-operation">
+        <div className="col-sm-9" id="next-operation">
           <p id="operation-name">Operation {props.nextMission.name}</p>
           <text className={nextMissionDifficultyColor}>Difficulty: {props.nextMission.difficulty}</text>
         </div>
-        <div className="col-sm-3"></div>
       </div>
     )
   }

@@ -17,7 +17,7 @@ const reducer = (state, action) => {
     case 'editUser':
       return state = {...state, editingUser: true};
     case 'viewRoster':
-      return state = {...state, viewingRoster: !state.viewingRoster};
+      return state = {...state, viewingRoster: !state.viewingRoster, postMissionScreen: false};
     case 'recruitSoldier':
       let untakenNames = action.payload.soldierPool
       state.soldiers.forEach(function(soldier) {
@@ -64,11 +64,16 @@ const reducer = (state, action) => {
         missionInProgress: false,
         missionTurnCounter: 0,
         missionNumber: state.missionNumber + 1,
+        prevMission: state.nextMission,
         nextMission: {
           name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
             operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
           difficulty: 'Easy'
         },
+        viewingRoster: false,
+        postMissionScreen: true,
+        soldiers: state.soldiers.concat(state.soldiersOnMission),
+        soldiersOnMission: [],
       };
     case 'promptReset':
       return state = {...state, resetConfirm: true};
@@ -118,11 +123,13 @@ const reducer = (state, action) => {
             kills: 0,
           },
         ],
+        prevMission: null,
         nextMission: {
           name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
             operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
           difficulty: 'Easy'
         },
+        postMissionScreen: false,
       };
     case 'promotions':
       let newSoldierStates = [...state.soldiers];
@@ -194,11 +201,13 @@ const store = createStore(
         name: "Sectoid"
       },
     ],
+    prevMission: null,
     nextMission: {
       name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
         operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
       difficulty: 'Easy'
     },
+    postMissionScreen: false,
   },
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

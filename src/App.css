@@ -93,7 +93,7 @@ p {
 
 #game-area-contents {
   position: absolute;
-  padding-top: 60px;
+  padding-top: 10px;
   padding-right: 0px;
   top: 0;
   bottom: 0;
@@ -126,6 +126,14 @@ p {
 #roster-title {
   font-family: 'Techno';
   font-size: 60px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  width: 100%;
+}
+
+#debriefing-operation {
+  font-size: 30px;
   margin: 0px;
   padding: 0px;
   text-align: center;
