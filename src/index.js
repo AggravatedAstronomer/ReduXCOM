@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import operationNames from './operation_names/operation_names';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -63,6 +64,11 @@ const reducer = (state, action) => {
         missionInProgress: false,
         missionTurnCounter: 0,
         missionNumber: state.missionNumber + 1,
+        nextMission: {
+          name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
+            operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
+          difficulty: 'Easy'
+        },
       };
     case 'promptReset':
       return state = {...state, resetConfirm: true};
@@ -112,6 +118,11 @@ const reducer = (state, action) => {
             kills: 0,
           },
         ],
+        nextMission: {
+          name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
+            operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
+          difficulty: 'Easy'
+        },
       };
     case 'promotions':
       let newSoldierStates = [...state.soldiers];
@@ -172,9 +183,20 @@ const store = createStore(
         kills: 0,
       },
     ],
-    aliensVisible: [],
+    aliensVisible: [
+      {
+        name: "Sectoid"
+      },
+      {
+        name: "Sectoid"
+      },
+      {
+        name: "Sectoid"
+      },
+    ],
     nextMission: {
-      name: 'Bold Promise',
+      name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
+        operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
       difficulty: 'Easy'
     },
   },

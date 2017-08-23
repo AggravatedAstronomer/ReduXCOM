@@ -13,14 +13,7 @@ const Deployment = (props) => {
   } else {
     deploymentColor = 'green-deploy';
   }
-  let nextMissionDifficultyColor = 'easy-mission';
-  if (props.nextMission.difficulty == 'Moderate') {
-    nextMissionDifficultyColor = 'moderate-mission';
-  } else if (props.nextMission.difficulty == 'Difficult') {
-    nextMissionDifficultyColor = 'difficult-mission';
-  } else if (props.nextMission.difficulty == 'Very difficult') {
-    nextMissionDifficultyColor = 'very-difficult-mission';
-  }
+
   if (props.missionNumber > 0 && !props.missionInProgress) {
     return (
       <div id="deployment-selection">
@@ -38,13 +31,6 @@ const Deployment = (props) => {
             })}
           </tbody>
         </table>
-        <div>
-          <p id="operation-title">Operation</p>
-            <p id="operation-name">
-              {props.nextMission.name}<br></br>
-              <text className={nextMissionDifficultyColor}>Difficulty: {props.nextMission.difficulty}</text>
-            </p>
-        </div>
       </div>
     );
   } else {
@@ -60,8 +46,6 @@ const mapStateToProps = (state) => {
     soldiersOnMission: state.soldiersOnMission,
     maxDeployedSoldiers: state.maxDeployedSoldiers,
     missionInProgress: state.missionInProgress,
-    nextMission: state.nextMission,
-
   }
 }
 

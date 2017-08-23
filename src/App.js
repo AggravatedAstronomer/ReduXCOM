@@ -13,10 +13,18 @@ import Hostile from './components/hostile';
 
 const App = (props) => {
   let sideMenus = null;
+  let alienUI = null;
   if (props.missionInProgress === false) {
     sideMenus = (<div><StartOrContinue/><Reset missionNumber={props.missionNumber}/></div>);
   } else {
     sideMenus = (<MissionMenus/>);
+      alienUI = (
+      <div className="hostiles">
+        {props.aliensVisible.map(function(alien, i){
+          return <Hostile obj={alien} key={i} />
+        })}
+      </div>
+    )
   }
   return (
     <div className="App">
@@ -34,11 +42,7 @@ const App = (props) => {
           <Deployment/>
         </div>
       </div>
-      <div className="hostiles">
-        {props.aliensVisible.map(function(alien, i){
-          return <Hostile obj={alien} key={i} />
-        })}
-      </div>
+      {alienUI}
       <MissionArea/>
     </div>
   );
@@ -46,9 +50,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
     missionNumber: state.missionNumber,
-    soldiers: state.soldiers,
     missionInProgress: state.missionInProgress,
     aliensVisible: state.aliensVisible,
   };

@@ -8,9 +8,9 @@ const StartOrContinue = (props) => {
   if (props.missionNumber > 0) {
     let nextMission = <p></p>
     if (props.soldiersOnMission > 0) {
-      nextMission = <div onClick={(e) => props.launchMission() } className="side-option"><p>Next Mission ></p></div>
+      nextMission = <div onClick={(e) => props.launchMission() } className="side-option"><p>Launch Mission ></p></div>
     } else {
-      nextMission = <div className="side-option side-option-disabled"><p>Next Mission ></p></div>
+      nextMission = <div className="side-option side-option-disabled"><p>Launch Mission ></p></div>
     }
     return (
     <div>
