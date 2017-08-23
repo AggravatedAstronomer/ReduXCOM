@@ -200,6 +200,8 @@ const operationNames = {
     'Noodle',
     'Horror',
     'Monolith',
+    'Peril',
+
   ]
 }
 
