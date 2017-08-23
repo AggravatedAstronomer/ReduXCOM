@@ -11,7 +11,7 @@ const operationNames = {
       'Malefic',
       'Insidious',
       'Celestial',
-      'Shock',
+      'Shocking',
       'Piercing',
       'Fierce',
       'Smash',
