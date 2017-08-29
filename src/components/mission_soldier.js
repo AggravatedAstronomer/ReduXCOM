@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
 const RosterEntry = (props) => {
-  let rosterClass = ''
-  if (props.soldiersOnMission.length == props.maxDeployedSoldiers) {
-    rosterClass = ' max-deployed';
-  }
   let status = null;
-  if (props.obj.status == 'Healthy') {
+  if (props.obj.status === 'Healthy') {
     status = (<text className="healthy">Healthy</text>)
-  } else if (props.obj.status == 'Wounded') {
+  } else if (props.obj.status === 'Wounded') {
     status = (<text className="wounded">Wounded</text>)
-  } else if (props.obj.status == 'Gravely Wounded') {
+  } else if (props.obj.status === 'Gravely Wounded') {
     status = (<text className="gravely-wounded">Gravely Wounded</text>)
-  } else if (props.obj.status == 'Dead') {
+  } else if (props.obj.status === 'Dead') {
     status = (<text className="dead">Dead</text>)
   }
     return (

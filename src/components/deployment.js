@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
-import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 import DeploymentEntry from './deployment_entry';
 
 const Deployment = (props) => {
   let deploymentColor = '';
-  if (props.soldiersOnMission.length == 0) {
+  if (props.soldiersOnMission.length === 0) {
     deploymentColor = 'red-deploy';
   } else if (props.soldiersOnMission.length > 0 && props.soldiersOnMission.length < props.maxDeployedSoldiers) {
     deploymentColor = 'yellow-deploy';

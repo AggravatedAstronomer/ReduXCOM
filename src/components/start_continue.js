@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import * as actions from "../actions/actions";
 import { connect } from 'react-redux';

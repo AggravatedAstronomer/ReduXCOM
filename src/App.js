@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import * as actions from './actions/actions';
 import { connect } from 'react-redux';
 import Reset from './components/reset';
 import StartOrContinue from './components/start_continue';

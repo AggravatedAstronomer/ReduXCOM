@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
-import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 import MissionSoldier from './mission_soldier';
 
@@ -8,11 +7,11 @@ const MissionArea = (props) => {
   let operationUI = null;
   if (props.missionNumber > 0) {
     let nextMissionDifficultyColor = 'difficulty easy-mission';
-    if (props.nextMission.difficulty == 'Moderate') {
-      nextMissionDifficultyColor = 'difficulty moderate-mission';
-    } else if (props.nextMission.difficulty == 'Difficult') {
+    if (props.nextMission.difficulty === 'Moderate') {
+      nextMissionDifficultyColor = '=difficulty moderate-mission';
+    } else if (props.nextMission.difficulty === 'Difficult') {
       nextMissionDifficultyColor = 'difficulty difficult-mission';
-    } else if (props.nextMission.difficulty == 'Very difficult') {
+    } else if (props.nextMission.difficulty === 'Very difficult') {
       nextMissionDifficultyColor = 'difficulty very-difficult-mission';
     }
     operationUI = (
@@ -29,7 +28,7 @@ const MissionArea = (props) => {
     return (
       <div className="mission-area">
         <div className="mission-area-image-container">
-          <img id="mission-area-image" src={require('../img/objectives.jpg')}/>
+          <img id="mission-area-image" src={require('../img/objectives.jpg')} alt=""></img>
         </div>
         <div id="mission-area-contents">
           <p id="mission-title">Menace 1-5</p>
@@ -47,7 +46,7 @@ const MissionArea = (props) => {
     return (
       <div className="mission-area">
         {operationUI}
-        <img id="pending-spinner" src={require('../img/XCOM_Shield_Logo.gif')}/>
+        <img id="pending-spinner" src={require('../img/XCOM_Shield_Logo.gif')} alt=""></img>
       </div>
     );
   } else {

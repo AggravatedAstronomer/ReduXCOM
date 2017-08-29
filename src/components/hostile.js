@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
-import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
 const Hostiles = (props) => {
   if (props.missionInProgress) {
     return (
       <div className="visible-alien-container">
-        <img  className="visible-alien" src={require('../img/icons/alien.png')}></img><br></br>
+        <img  className="visible-alien" src={require('../img/icons/alien.png')} alt=""></img><br></br>
         <text className="alien-info">Sectoid</text>
       </div>
     );

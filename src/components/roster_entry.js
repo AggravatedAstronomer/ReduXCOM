@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 
 const RosterEntry = (props) => {
   let rosterClass = ''
-  if (props.soldiersOnMission.length == props.maxDeployedSoldiers) {
+  if (props.soldiersOnMission.length === props.maxDeployedSoldiers) {
     rosterClass = ' max-deployed';
   }
     return (

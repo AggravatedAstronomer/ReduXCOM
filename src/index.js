@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -25,6 +25,7 @@ const reducer = (state, action) => {
           if (soldier.name === name) {
             untakenNames.splice(untakenNames.indexOf(name), 1)
           }
+          return untakenNames;
         });
       });
       let randomName = untakenNames[Math.floor(Math.random() * untakenNames.length)];
@@ -38,11 +39,11 @@ const reducer = (state, action) => {
       }
       return state = {...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50};
     case 'deploySoldier':
-      if (state.soldiersOnMission.indexOf(action.payload) == -1 && ((state.soldiersOnMission.length < state.maxDeployedSoldiers))) {
+      if (state.soldiersOnMission.indexOf(action.payload) === -1 && ((state.soldiersOnMission.length < state.maxDeployedSoldiers))) {
         let newSoldiers = [...state.soldiers];
         newSoldiers.splice(newSoldiers.indexOf(action.payload), 1);
         return state = {...state, soldiersOnMission: state.soldiersOnMission.concat([action.payload]), soldiers: newSoldiers};
-      } else if (state.soldiersOnMission.indexOf(action.payload) != -1) {
+      } else if (state.soldiersOnMission.indexOf(action.payload) !== -1) {
         let newDeployment = [...state.soldiersOnMission];
         newDeployment.splice(newDeployment.indexOf(action.payload), 1);
         return state = {...state, soldiersOnMission: newDeployment, soldiers: state.soldiers.concat([action.payload])};
@@ -135,14 +136,17 @@ const reducer = (state, action) => {
       let newSoldierStates = [...state.soldiers];
       action.payload.forEach(function(promotion) {
         state.soldiers.filter(function(soldier) {
-          if (soldier.name == promotion) {
+          if (soldier.name === promotion) {
             newSoldierStates.push(soldier.rank += 1);
           }
+          return newSoldierStates;
         });
         return state = {...state, soldiers: newSoldierStates};
       });
+    break
+    default:
+      return state;
     }
-  return state;
 }
 
 const store = createStore(

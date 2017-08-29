@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
-import * as actions from "../actions/actions";
 import { connect } from 'react-redux';
 import RosterEntry from './roster_entry';
 
@@ -10,7 +9,7 @@ const GameArea = (props) => {
     return (
       <div className="game-area">
         <div className="game-area-image-container">
-          <img id="game-area-image" src={require('../img/sectoid_thm.jpg')}></img>
+          <img id="game-area-image" src={require('../img/sectoid_thm.jpg')} alt=""></img>
         </div>
         <div id="game-area-contents">
           <div className="col-sm-4">
@@ -25,7 +24,7 @@ const GameArea = (props) => {
     return (
       <div className="game-area">
         <div className="game-area-image-container">
-          <img id="game-area-image" src={require('../img/hologlobe.jpg')}></img>
+          <img id="game-area-image" src={require('../img/hologlobe.jpg')} alt=""></img>
         </div>
         <div id="game-area-contents">
           <div className="col-sm-9">
@@ -41,7 +40,7 @@ const GameArea = (props) => {
     return (
       <div className="game-area">
         <div className="game-area-image-container">
-          <img id="game-area-image" src={require('../img/avenger.jpg')}></img>
+          <img id="game-area-image" src={require('../img/avenger.jpg')} alt=""></img>
         </div>
         <div id="game-area-contents">
       <div id="roster-container">
@@ -69,7 +68,7 @@ const GameArea = (props) => {
     return (
       <div className="game-area">
         <div className="game-area-image-container">
-          <img id="game-area-image" src={require('../img/firebrand.png')}></img>
+          <img id="game-area-image" src={require('../img/firebrand.png')} alt=""></img>
         </div>
         <div id="game-area-contents">
       <div id="roster-container">
@@ -97,7 +96,7 @@ const GameArea = (props) => {
     )
   } else {
     return (
-      <img id="xcom-alpha-logo" src={require('../img/xcom_alpha.png')}/>
+      <img id="xcom-alpha-logo" src={require('../img/xcom_alpha.png')} alt=""></img>
     );
   }
 }
