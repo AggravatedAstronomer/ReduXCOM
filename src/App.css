@@ -123,6 +123,10 @@ p {
   z-index: -1;
 }
 
+.resources {
+  font-size: 18px;
+}
+
 #roster-title {
   font-family: 'Techno';
   font-size: 60px;
@@ -287,17 +291,17 @@ td {
 }
 
 .green-deploy {
-  font-size: 25px;
+  font-size: 30px;
   color: #77fc6f;
 }
 
 .yellow-deploy {
-  font-size: 25px;
+  font-size: 30px;
   color: yellow;
 }
 
 .red-deploy {
-  font-size: 25px;
+  font-size: 30px;
   color: red;
 }
 
@@ -415,6 +419,11 @@ td {
 #deployment-selection {
   font-size: 12px;
   margin: 0px;
+}
+
+#deployment-title {
+  font-family: 'Techno';
+  font-size: 30px;
 }
 
 .soldier-line {

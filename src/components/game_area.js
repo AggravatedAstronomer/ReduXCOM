@@ -28,9 +28,9 @@ const GameArea = (props) => {
           <img id="game-area-image" src={require('../img/hologlobe.jpg')}></img>
         </div>
         <div id="game-area-contents">
-          <div className="col-sm-9">
+          <div className="col-sm-8">
           </div>
-          <div className="col-sm-3">
+          <div className="resources col-sm-4">
             <p>Credits: §{props.credits}</p>
             <p>Alloys: {props.alienAlloys}</p>
           </div>
@@ -46,7 +46,7 @@ const GameArea = (props) => {
         <div id="game-area-contents">
       <div id="roster-container">
         <p id="roster-title">Roster</p>
-        <p className="pull-right">Credits: §{props.credits}</p>
+        <p className="resources pull-right">Credits: §{props.credits}</p>
         <table id="roster-table">
           <tbody>
             <tr>
@@ -75,8 +75,8 @@ const GameArea = (props) => {
       <div id="roster-container">
         <p id="roster-title">Debreifing</p>
         <p id="debriefing-operation">Operation {props.prevMission.name}</p>
-        <p>Credits: §{props.credits}</p>
-        <p>Alloys: {props.alienAlloys}</p>
+        <p className="resources">Credits: §{props.credits}</p>
+        <p className="resources">Alloys: {props.alienAlloys}</p>
         <table id="roster-table">
           <tbody>
             <tr>

@@ -58,6 +58,7 @@ export function recruitSoldier() {
 }
 
 export function deploySoldier(soldier) {
+  soldier.missionTile = 0
   return {
     type: "deploySoldier",
     payload: soldier,
