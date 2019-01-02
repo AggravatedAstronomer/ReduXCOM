@@ -9,22 +9,22 @@
 }
 
 .App {
-  font-family: 'XCOM';
+  font-family: 'sans-serif';
   letter-spacing: 3px;
   color: #bafaff;
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49 , black); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49 , black); /* Standard syntax */
+  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -43,7 +43,7 @@ p {
 }
 
 .title {
-  font-family: 'Techno';
+  font-family: 'sans-serif';
   color: #bafaff;
   text-shadow: 0px 8px 5px black;
   border-style: solid;
@@ -59,20 +59,20 @@ p {
   margin: 0px;
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(bottom, #293c49 , black); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(bottom, #293c49, black); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(top, #293c49, black); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(top, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to top, #293c49 , black); /* Standard syntax */
+  background: linear-gradient(to top, #293c49, black); /* Standard syntax */
 }
 
 .main-area {
   height: 725px;
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49 , black); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49 , black); /* Standard syntax */
+  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
 }
 
 .game-area {
@@ -114,8 +114,8 @@ p {
 
 #game-area-image {
   margin-left: auto;
-	margin-right: auto;
-	display: block;
+  margin-right: auto;
+  display: block;
   position: absolute;
   width: auto;
   height: 540px;
@@ -124,7 +124,7 @@ p {
 }
 
 #roster-title {
-  font-family: 'Techno';
+  font-family: 'sans-serif';
   font-size: 60px;
   margin: 0px;
   padding: 0px;
@@ -145,13 +145,13 @@ p {
 }
 
 .roster-header {
-  font-family: 'Techno';
+  font-family: 'sans-serif';
   font-weight: normal;
   font-size: 30px;
 }
 
 .roster-entry {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0px;
   margin-left: 10px;
 }
@@ -169,8 +169,8 @@ thead {
   margin: 0px;
 }
 
-#roster-table{
-    width: 890px;
+#roster-table {
+  width: 890px;
 }
 
 #deployment-table {
@@ -187,10 +187,10 @@ td {
   text-align: center;
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49 , black); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49 , black); /* Standard syntax */
+  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
 }
 
 .visible-alien-container {
@@ -238,10 +238,10 @@ td {
 
 #mission-title {
   position: relative;
-  font-family: 'Techno';
+  font-family: 'sans-serif';
   text-shadow: 0px 8px 5px black;
   text-align: center;
-  font-size: 70px;
+  font-size: 40px;
   width: 100%;
 }
 
@@ -260,13 +260,13 @@ td {
 }
 
 #mission-area-image {
-	display: block;
+  display: block;
   bottom: 150px;
   position: relative;
   width: 100%;
   max-width: 2560px;
   height: auto;
-  opacity:0.6;
+  opacity: 0.6;
   z-index: 1;
 }
 
@@ -282,6 +282,7 @@ td {
 }
 
 #operation-name {
+  font-family: 'XCOM';
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
@@ -412,6 +413,13 @@ td {
   text-align: center;
 }
 
+#deployment-title {
+  position: relative;
+  font-family: 'sans-serif';
+  text-shadow: 0px 8px 5px black;
+  font-size: 40px;
+}
+
 #deployment-selection {
   font-size: 12px;
   margin: 0px;
@@ -420,7 +428,7 @@ td {
 .soldier-line {
   text-align: center;
   text-shadow: 0px 0px 5px cyan;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   padding: 30px;
   width: 100%;
   height: 20px;
@@ -444,7 +452,7 @@ td {
   cursor: default;
   padding-top: 25px;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   height: 75px;
   text-shadow: 0px 8px 5px black;
 }
@@ -453,7 +461,7 @@ td {
   top: 5px;
   cursor: pointer;
   margin-left: 25px;
-  outline:dashed;
+  outline: dashed;
   outline-offset: 2px;
   outline-width: 1px;
   -webkit-transition: all 0.2s ease-out;
@@ -487,57 +495,59 @@ td {
 }
 
 #identify {
+  font-family: sans-serif;
   background-color: black;
   text-indent: 20px;
+  height: 50px;
   width: 800px;
   line-height: 100%;
 }
 
 :hover::-webkit-input-placeholder {
-    color: #77fc6f;
-    background-color: #19252d;
+  color: #77fc6f;
 }
 
 /* Firefox < 19 */
 :hover:-moz-placeholder {
-    color: #77fc6f;
-    background-color: #19252d;
+  color: #77fc6f;
 }
 
 /* Firefox > 19 */
 :hover::-moz-placeholder {
-    color: #77fc6f;
-    background-color: #19252d;
+  color: #77fc6f;
 }
 
 /* Internet Explorer 10 */
 :hover:-ms-input-placeholder {
-    color: #77fc6f;
-    background-color: #19252d;
+  color: #77fc6f;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   color: #293c49;
 }
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   color: #293c49;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   color: #293c49;
 }
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
+  /* Firefox 18- */
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -662,7 +672,7 @@ td {
   background-color: black;
   height: 210px;
   padding: 0px;
-  background-image: url("./img/XCOM_2_logo_static.jpg");
+  background-image: url('./img/XCOM_2_logo_static.jpg');
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;

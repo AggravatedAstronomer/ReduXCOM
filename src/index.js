@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -11,19 +11,19 @@ import operationNames from './operation_names/operation_names';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'startCampaign':
-        return state = {...state, missionNumber: state.missionNumber + 1, editingUser: false};
+      return (state = { ...state, missionNumber: state.missionNumber + 1, editingUser: false });
     case 'setUser':
-      return state = {...state, user: action.payload.user, editingUser: false};
+      return (state = { ...state, user: action.payload.user, editingUser: false });
     case 'editUser':
-      return state = {...state, editingUser: true};
+      return (state = { ...state, editingUser: true });
     case 'viewRoster':
-      return state = {...state, viewingRoster: !state.viewingRoster, postMissionScreen: false};
+      return (state = { ...state, viewingRoster: !state.viewingRoster, postMissionScreen: false });
     case 'recruitSoldier':
-      let untakenNames = action.payload.soldierPool
+      let untakenNames = action.payload.soldierPool;
       state.soldiers.forEach(function(soldier) {
         untakenNames.filter(function(name) {
           if (soldier.name === name) {
-            untakenNames.splice(untakenNames.indexOf(name), 1)
+            untakenNames.splice(untakenNames.indexOf(name), 1);
           }
           return untakenNames;
         });
@@ -33,33 +33,34 @@ const reducer = (state, action) => {
       let recruit = {
         name: randomName,
         rank: 1,
-        class: "Rookie",
-        status: "Healthy",
+        class: 'Rookie',
+        status: 'Healthy',
         kills: 0,
-      }
-      return state = {...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50};
+      };
+      return (state = { ...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50 });
     case 'deploySoldier':
-      if (state.soldiersOnMission.indexOf(action.payload) === -1 && ((state.soldiersOnMission.length < state.maxDeployedSoldiers))) {
-        let newSoldiers = [...state.soldiers];
-        newSoldiers.splice(newSoldiers.indexOf(action.payload), 1);
-        return state = {...state, soldiersOnMission: state.soldiersOnMission.concat([action.payload]), soldiers: newSoldiers};
-      } else if (state.soldiersOnMission.indexOf(action.payload) !== -1) {
-        let newDeployment = [...state.soldiersOnMission];
-        newDeployment.splice(newDeployment.indexOf(action.payload), 1);
-        return state = {...state, soldiersOnMission: newDeployment, soldiers: state.soldiers.concat([action.payload])};
+      const { soldier } = action;
+      if (state.soldiersOnMission.indexOf(soldier) === -1 && state.soldiersOnMission.length < state.maxDeployedSoldiers) {
+        let vacatedSoldierPool = [...state.soldiers];
+        vacatedSoldierPool.splice(vacatedSoldierPool.indexOf(soldier), 1);
+        return (state = { ...state, soldiersOnMission: state.soldiersOnMission.concat([soldier]), soldiers: vacatedSoldierPool });
+      } else if (state.soldiersOnMission.indexOf(soldier) !== -1) {
+        let vacatedDeployment = [...state.soldiersOnMission];
+        vacatedDeployment.splice(vacatedDeployment.indexOf(soldier), 1);
+        return (state = { ...state, soldiersOnMission: vacatedDeployment, soldiers: state.soldiers.concat([soldier]) });
       } else {
         return state;
       }
     case 'launchMission':
-      return state = {...state, missionInProgress: true};
+      return (state = { ...state, missionInProgress: true });
     case 'nextTurn':
-      return state = {...state, missionTurnCounter: state.missionTurnCounter + 1};
+      return (state = { ...state, missionTurnCounter: state.missionTurnCounter + 1 });
     case 'promptAbort':
-      return state = {...state, abortConfirm: true};
+      return (state = { ...state, abortConfirm: true });
     case 'cancelAbort':
-      return state = {...state, abortConfirm: false};
+      return (state = { ...state, abortConfirm: false });
     case 'abortMission':
-      return state = {
+      return (state = {
         ...state,
         abortConfirm: false,
         missionInProgress: false,
@@ -67,21 +68,23 @@ const reducer = (state, action) => {
         missionNumber: state.missionNumber + 1,
         prevMission: state.nextMission,
         nextMission: {
-          name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
-            operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
-          difficulty: 'Easy'
+          name:
+            operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
+            ' ' +
+            operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
+          difficulty: 'Easy',
         },
         viewingRoster: false,
         postMissionScreen: true,
         soldiers: state.soldiers.concat(state.soldiersOnMission),
         soldiersOnMission: [],
-      };
+      });
     case 'promptReset':
-      return state = {...state, resetConfirm: true};
+      return (state = { ...state, resetConfirm: true });
     case 'cancelReset':
-      return state = {...state, resetConfirm: false};
+      return (state = { ...state, resetConfirm: false });
     case 'resetGame':
-      return state = {
+      return (state = {
         ...state,
         user: '',
         editingUser: true,
@@ -96,58 +99,60 @@ const reducer = (state, action) => {
         maxDeployedSoldiers: 4,
         soldiers: [
           {
-            name: "Patientzer0",
+            name: 'Patientzer0',
             rank: 1,
-            class: "Rookie",
-            status: "Healthy",
+            class: 'Rookie',
+            status: 'Healthy',
             kills: 0,
           },
           {
-            name: "Tegularius",
+            name: 'Tegularius',
             rank: 1,
-            class: "Rookie",
-            status: "Healthy",
+            class: 'Rookie',
+            status: 'Healthy',
             kills: 0,
           },
           {
-            name: "Azimuth",
+            name: 'Azimuth',
             rank: 1,
-            class: "Rookie",
-            status: "Healthy",
+            class: 'Rookie',
+            status: 'Healthy',
             kills: 0,
           },
           {
-            name: "Jc2k",
+            name: 'Jc2k',
             rank: 1,
-            class: "Rookie",
-            status: "Healthy",
+            class: 'Rookie',
+            status: 'Healthy',
             kills: 0,
           },
         ],
         prevMission: null,
         nextMission: {
-          name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
-            operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
-          difficulty: 'Easy'
+          name:
+            operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
+            ' ' +
+            operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
+          difficulty: 'Easy',
         },
         postMissionScreen: false,
-      };
+      });
     case 'promotions':
       let newSoldierStates = [...state.soldiers];
       action.payload.forEach(function(promotion) {
         state.soldiers.filter(function(soldier) {
           if (soldier.name === promotion) {
-            newSoldierStates.push(soldier.rank += 1);
+            newSoldierStates.push((soldier.rank += 1));
           }
           return newSoldierStates;
         });
-        return state = {...state, soldiers: newSoldierStates};
+        return (state = { ...state, soldiers: newSoldierStates });
       });
-    break
+      break;
     default:
       return state;
-    }
-}
+  }
+};
 
 const store = createStore(
   reducer,
@@ -166,62 +171,66 @@ const store = createStore(
     maxDeployedSoldiers: 4,
     soldiers: [
       {
-        name: "Patientzer0",
+        name: 'Patientzer0',
         rank: 1,
-        class: "Rookie",
-        status: "Healthy",
+        class: 'Rookie',
+        status: 'Healthy',
         kills: 0,
       },
       {
-        name: "Tegularius",
+        name: 'Tegularius',
         rank: 1,
-        class: "Rookie",
-        status: "Wounded",
+        class: 'Rookie',
+        status: 'Wounded',
         kills: 0,
       },
       {
-        name: "Azimuth",
+        name: 'Azimuth',
         rank: 1,
-        class: "Rookie",
-        status: "Gravely Wounded",
+        class: 'Rookie',
+        status: 'Gravely Wounded',
         kills: 0,
       },
       {
-        name: "Jc2k",
+        name: 'Jc2k',
         rank: 1,
-        class: "Rookie",
-        status: "Healthy",
+        class: 'Rookie',
+        status: 'Healthy',
         kills: 0,
       },
     ],
     aliensVisible: [
       {
-        name: "Sectoid"
+        name: 'Sectoid',
       },
       {
-        name: "Sectoid"
+        name: 'Sectoid',
       },
       {
-        name: "Sectoid"
+        name: 'Sectoid',
       },
     ],
     prevMission: null,
     nextMission: {
-      name: operationNames.adjectives[Math.floor(Math.random()*operationNames.adjectives.length)] + ' ' +
-        operationNames.nouns[Math.floor(Math.random()*operationNames.nouns.length)],
-      difficulty: 'Easy'
+      name:
+        operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
+        ' ' +
+        operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
+      difficulty: 'Easy',
     },
     postMissionScreen: false,
   },
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 store.subscribe(() => {
-  console.log("store changed", store.getState())
-})
+  // console.log('store changed', store.getState());
+});
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
-  </Provider>, document.getElementById('root'));
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();

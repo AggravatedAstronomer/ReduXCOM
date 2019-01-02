@@ -10,54 +10,59 @@ import UserName from './components/user_name';
 import Deployment from './components/deployment';
 import Hostile from './components/hostile';
 
-const App = (props) => {
+const App = props => {
   let sideMenus = null;
   let alienUI = null;
   if (props.missionInProgress === false) {
-    sideMenus = (<div><StartOrContinue/><Reset missionNumber={props.missionNumber}/></div>);
+    sideMenus = (
+      <div>
+        <StartOrContinue />
+        <Reset missionNumber={props.missionNumber} />
+      </div>
+    );
   } else {
-    sideMenus = (<MissionMenus/>);
-      alienUI = (
+    sideMenus = <MissionMenus />;
+    alienUI = (
       <div className="hostiles">
-        {props.aliensVisible.map(function(alien, i){
-          return <Hostile obj={alien} key={i} />
+        {props.aliensVisible.map(function(alien, i) {
+          return <Hostile obj={alien} key={i} />;
         })}
       </div>
-    )
+    );
   }
   return (
     <div className="App">
-      <div className="App-header"></div>
-      <h1 className="title">Browser Game</h1>
+      <div className="App-header" />
+      {/* <h1 className="title">Browser Game</h1> */}
       <div className="main-area">
-        <UserName/>
-        <div className="col-sm-3 side-menu">
-          {sideMenus}
-        </div>
+        <UserName />
+        <div className="col-sm-3 side-menu">{sideMenus}</div>
         <div className="col-sm-6 side-logo">
-          <GameArea/>
+          <GameArea />
         </div>
         <div className="col-sm-3 side-menu side-menu-right">
-          <Deployment/>
+          <Deployment />
         </div>
       </div>
       {alienUI}
-      <MissionArea/>
+      <MissionArea />
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     missionNumber: state.missionNumber,
     missionInProgress: state.missionInProgress,
     aliensVisible: state.aliensVisible,
   };
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  };
-}
+const mapDispatchToProps = dispatch => {
+  return {};
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

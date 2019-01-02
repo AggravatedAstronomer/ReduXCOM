@@ -3,7 +3,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import DeploymentEntry from './deployment_entry';
 
-const Deployment = (props) => {
+const Deployment = props => {
   let deploymentColor = '';
   if (props.soldiersOnMission.length === 0) {
     deploymentColor = 'red-deploy';
@@ -17,41 +17,43 @@ const Deployment = (props) => {
     return (
       <div id="deployment-selection">
         <p id="deployment-title">
-          Deployment <text className={deploymentColor}>[{props.soldiersOnMission.length} / {props.maxDeployedSoldiers}]</text>
+          DEPLOYMENT
+          <p className={deploymentColor}>
+            [{props.soldiersOnMission.length} / {props.maxDeployedSoldiers}]
+          </p>
         </p>
         <table id="deployment-table">
           <tbody>
             <tr>
-              <th className="roster-header">Name</th>
-              <th className="roster-header">Class</th>
+              <th className="roster-header">NAME</th>
+              <th className="roster-header">CLASS</th>
             </tr>
-            {props.soldiersOnMission.map(function(soldier, i){
-              return <DeploymentEntry obj={soldier} key={i} />
+            {props.soldiersOnMission.map(soldier => {
+              return <DeploymentEntry soldier={soldier} key={soldier.name} />;
             })}
           </tbody>
         </table>
       </div>
     );
   } else {
-    return (
-      null
-    );
+    return null;
   }
-}
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     missionNumber: state.missionNumber,
     soldiersOnMission: state.soldiersOnMission,
     maxDeployedSoldiers: state.maxDeployedSoldiers,
     missionInProgress: state.missionInProgress,
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => {
+  return {};
+};
 
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Deployment);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Deployment);

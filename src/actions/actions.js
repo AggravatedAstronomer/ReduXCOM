@@ -1,121 +1,113 @@
-export function setUser(name) {
+export const setUser = name => {
   return {
-    type: "setUser",
-    payload: {user: name.slice(0,30)}
-  }
-}
+    type: 'setUser',
+    payload: { user: name.slice(0, 30) },
+  };
+};
 
-export function editUser(name) {
+export const editUser = name => {
   return {
-    type: "editUser",
-    payload: {}
-  }
-}
+    type: 'editUser',
+    payload: {},
+  };
+};
 
-export function viewRoster() {
+export const viewRoster = () => {
   return {
-    type: "viewRoster",
-    payload: {}
-  }
-}
+    type: 'viewRoster',
+    payload: {},
+  };
+};
 
-export function startCampaign() {
+export const startCampaign = () => {
   return {
-    type: "startCampaign",
-    payload: {}
-  }
-}
+    type: 'startCampaign',
+    payload: {},
+  };
+};
 
-export function recruitSoldier() {
+export const recruitSoldier = () => {
   return {
-    type: "recruitSoldier",
+    type: 'recruitSoldier',
     payload: {
       soldierPool: [
-      'Patientzer0',
-      'Shtev',
-      'Lydia',
-      'Fig',
-      'Ricey',
-      'Bne',
-      'Davidb',
-      'Birty',
-      'Rob1',
-      'Offmessage',
-      'Sharon',
-      'Winjer',
-      'Alex2',
-      'Gwildar',
-      'Plumdog',
-      'Toomuchinformation',
-      'Joethedough',
-      'Jc2k',
-      'Scunnydelight',
-      'Azimuth',
-      'Twom',
-      'TomDS',
-    ]}
-  }
-}
+        'Patientzer0',
+        'Shtev',
+        'Lydia',
+        'Fig',
+        'Ricey',
+        'Bne',
+        'Davidb',
+        'Rob1',
+        'Offmessage',
+        'Sharon',
+        'Winjer',
+        'Alex2',
+        'Gwildar',
+        'Plumdog',
+        'Toomuchinformation',
+        'Joethedough',
+        'Jc2k',
+        'Scunnydelight',
+        'Azimuth',
+        'Twom',
+        'TomDS',
+      ],
+    },
+  };
+};
 
-export function deploySoldier(soldier) {
+export const deploySoldier = soldier => {
   return {
-    type: "deploySoldier",
-    payload: soldier,
-  }
-}
+    type: 'deploySoldier',
+    soldier,
+  };
+};
 
-export function launchMission() {
+export const launchMission = () => {
   return {
-    type: "launchMission",
-    payload: {}
-  }
-}
+    type: 'launchMission',
+  };
+};
 
-export function nextTurn() {
+export const nextTurn = () => {
   return {
-    type: "nextTurn",
-    payload: {}
-  }
-}
+    type: 'nextTurn',
+  };
+};
 
-export function promptAbort() {
+export const promptAbort = () => {
   return {
-    type: "promptAbort",
-    payload: {}
-  }
-}
+    type: 'promptAbort',
+  };
+};
 
-export function cancelAbort() {
+export const cancelAbort = () => {
   return {
-    type: "cancelAbort",
-    payload: {}
-  }
-}
+    type: 'cancelAbort',
+  };
+};
 
-export function abortMission() {
+export const abortMission = () => {
   return {
-    type: "abortMission",
-    payload: {}
-  }
-}
+    type: 'abortMission',
+  };
+};
 
-export function promptReset() {
+export const promptReset = () => {
   return {
-    type: "promptReset",
-    payload: {}
-  }
-}
+    type: 'promptReset',
+  };
+};
 
-export function cancelReset() {
+export const cancelReset = () => {
   return {
-    type: "cancelReset",
-    payload: {}
-  }
-}
+    type: 'cancelReset',
+  };
+};
 
-export function resetGame() {
+export const resetGame = () => {
   return {
-    type: "resetGame",
-    payload: {}
-  }
-}
+    type: 'resetGame',
+  };
+};
