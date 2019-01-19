@@ -24,9 +24,9 @@ const App = props => {
     sideMenus = <MissionMenus />;
     alienUI = (
       <div className="hostiles">
-        {props.aliensVisible.map(function(alien, i) {
-          return <Hostile obj={alien} key={i} />;
-        })}
+        {props.aliensVisible.map((alien, i) => (
+          <Hostile obj={alien} key={i} />
+        ))}
       </div>
     );
   }

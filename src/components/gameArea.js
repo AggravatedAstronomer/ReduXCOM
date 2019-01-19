@@ -82,10 +82,7 @@ const GameArea = props => {
                   <th className="roster-header">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
-                {!isEmpty(props.soldiers) &&
-                  props.soldiers.map(function(soldier, i) {
-                    return <RosterEntry soldier={soldier} key={i} />;
-                  })}
+                {!isEmpty(props.prevMission.participation) && props.prevMission.participation.map((soldier, i) => <RosterEntry soldier={soldier} key={i} />)}
               </tbody>
             </table>
           </div>

@@ -65,7 +65,7 @@ const reducer = (state, action) => {
         missionInProgress: false,
         missionTurnCounter: 0,
         missionNumber: state.missionNumber + 1,
-        prevMission: state.nextMission,
+        prevMission: { ...state.nextMission, participation: state.soldiersOnMission },
         nextMission: {
           name:
             operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
@@ -138,8 +138,8 @@ const reducer = (state, action) => {
       });
     case 'promotions':
       let newSoldierStates = [...state.soldiers];
-      action.payload.forEach(function(promotion) {
-        state.soldiers.filter(function(soldier) {
+      action.payload.forEach(promotion => {
+        state.soldiers.filter(soldier => {
           if (soldier.name === promotion) {
             newSoldierStates.push((soldier.rank += 1));
           }

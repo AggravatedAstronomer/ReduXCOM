@@ -34,9 +34,9 @@ const MissionArea = props => {
           <p id="mission-title">M E N A C E 1 - 5</p>
           <table id="menace-1-5">
             <tbody>
-              {props.soldiersOnMission.map(function(soldier, i) {
-                return <MissionSoldier obj={soldier} key={i} />;
-              })}
+              {props.soldiersOnMission.map((soldier, i) => (
+                <MissionSoldier obj={soldier} key={i} />
+              ))}
             </tbody>
           </table>
         </div>
