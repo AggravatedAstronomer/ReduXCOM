@@ -6,38 +6,34 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import operationNames from './operation_names/operation_names';
+import operationNames from './utils/operationNames';
+import recruitmentPool from './utils/recruitmentPool';
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'startCampaign':
       return (state = { ...state, missionNumber: state.missionNumber + 1, editingUser: false });
     case 'setUser':
-      return (state = { ...state, user: action.payload.user, editingUser: false });
+      return (state = { ...state, user: action.name, editingUser: false });
     case 'editUser':
       return (state = { ...state, editingUser: true });
     case 'viewRoster':
       return (state = { ...state, viewingRoster: !state.viewingRoster, postMissionScreen: false });
     case 'recruitSoldier':
-      let untakenNames = action.payload.soldierPool;
-      state.soldiers.forEach(function(soldier) {
-        untakenNames.filter(function(name) {
-          if (soldier.name === name) {
-            untakenNames.splice(untakenNames.indexOf(name), 1);
-          }
-          return untakenNames;
-        });
-      });
-      let randomName = untakenNames[Math.floor(Math.random() * untakenNames.length)];
-
-      let recruit = {
-        name: randomName,
+      const randomRecruitName = state.recruitmentPool[Math.floor(Math.random() * state.recruitmentPool.length)];
+      const recruit = {
+        name: randomRecruitName,
         rank: 1,
         class: 'Rookie',
         status: 'Healthy',
         kills: 0,
       };
-      return (state = { ...state, soldiers: state.soldiers.concat(recruit), credits: state.credits - 50 });
+      return (state = {
+        ...state,
+        soldiers: state.soldiers.concat(recruit),
+        recruitmentPool: state.recruitmentPool.filter((name, randomRecruitName) => name !== randomRecruitName),
+        credits: state.credits - 50,
+      });
     case 'deploySoldier':
       const { soldier } = action;
       if (state.soldiersOnMission.indexOf(soldier) === -1 && state.soldiersOnMission.length < state.maxDeployedSoldiers) {
@@ -169,6 +165,7 @@ const store = createStore(
     alienAlloys: 0,
     soldiersOnMission: [],
     maxDeployedSoldiers: 4,
+    recruitmentPool,
     soldiers: [
       {
         name: 'Patientzer0',

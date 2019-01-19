@@ -1,59 +1,31 @@
 export const setUser = name => {
   return {
     type: 'setUser',
-    payload: { user: name.slice(0, 30) },
+    name,
   };
 };
 
-export const editUser = name => {
+export const editUser = () => {
   return {
     type: 'editUser',
-    payload: {},
   };
 };
 
 export const viewRoster = () => {
   return {
     type: 'viewRoster',
-    payload: {},
   };
 };
 
 export const startCampaign = () => {
   return {
     type: 'startCampaign',
-    payload: {},
   };
 };
 
 export const recruitSoldier = () => {
   return {
     type: 'recruitSoldier',
-    payload: {
-      soldierPool: [
-        'Patientzer0',
-        'Shtev',
-        'Lydia',
-        'Fig',
-        'Ricey',
-        'Bne',
-        'Davidb',
-        'Rob1',
-        'Offmessage',
-        'Sharon',
-        'Winjer',
-        'Alex2',
-        'Gwildar',
-        'Plumdog',
-        'Toomuchinformation',
-        'Joethedough',
-        'Jc2k',
-        'Scunnydelight',
-        'Azimuth',
-        'Twom',
-        'TomDS',
-      ],
-    },
   };
 };
 

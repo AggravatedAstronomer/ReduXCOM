@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import Reset from './components/reset';
-import StartOrContinue from './components/start_continue';
-import MissionMenus from './components/mission_menus';
-import GameArea from './components/game_area';
-import MissionArea from './components/mission_area';
-import UserName from './components/user_name';
+import StartOrContinue from './components/startContinue';
+import MissionMenus from './components/missionMenus';
+import GameArea from './components/gameArea';
+import MissionArea from './components/missionArea';
+import UserName from './components/userName';
 import Deployment from './components/deployment';
 import Hostile from './components/hostile';
 

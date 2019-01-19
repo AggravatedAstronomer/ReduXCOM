@@ -4,26 +4,24 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 
 const RosterEntry = props => {
-  let rosterClass = '';
-  if (props.soldiersOnMission.length === props.maxDeployedSoldiers) {
-    rosterClass = ' max-deployed';
-  }
+  const { name, soldierClass, rank, kills, status } = props.soldier;
+  const rosterClass = props.soldiersOnMission.length === props.maxDeployedSoldiers ? ' max-deployed' : '';
   return (
     <tr onClick={() => props.deploySoldier(props.soldier)} className={'soldier-line' + rosterClass}>
       <td>
-        <p className="roster-entry">{props.soldier.name}</p>
+        <p className="roster-entry">{name}</p>
       </td>
       <td>
-        <p className="roster-entry">{props.soldier.class}</p>
+        <p className="roster-entry">{soldierClass}</p>
       </td>
       <td>
-        <p className="roster-entry">{props.soldier.rank}</p>
+        <p className="roster-entry">{rank}</p>
       </td>
       <td>
-        <p className="roster-entry">{props.soldier.kills}</p>
+        <p className="roster-entry">{kills}</p>
       </td>
       <td>
-        <p className="roster-entry">{props.soldier.status}</p>
+        <p className="roster-entry">{status}</p>
       </td>
     </tr>
   );

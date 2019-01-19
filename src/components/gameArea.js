@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import RosterEntry from './roster_entry';
+import RosterEntry from './rosterEntry';
+import { isEmpty } from 'ramda';
 
 const GameArea = props => {
   if (props.missionInProgress === true) {
@@ -50,9 +51,10 @@ const GameArea = props => {
                   <th className="roster-header">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
-                {props.soldiers.map(soldier => {
-                  return <RosterEntry soldier={soldier} key={soldier.name} />;
-                })}
+                {!isEmpty(props.soldiers) &&
+                  props.soldiers.map(soldier => {
+                    return <RosterEntry soldier={soldier} key={soldier.name} />;
+                  })}
               </tbody>
             </table>
           </div>
@@ -80,9 +82,10 @@ const GameArea = props => {
                   <th className="roster-header">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
-                {props.soldiers.map(function(soldier, i) {
-                  return <RosterEntry obj={soldier} key={i} />;
-                })}
+                {!isEmpty(props.soldiers) &&
+                  props.soldiers.map(function(soldier, i) {
+                    return <RosterEntry soldier={soldier} key={i} />;
+                  })}
               </tbody>
             </table>
           </div>

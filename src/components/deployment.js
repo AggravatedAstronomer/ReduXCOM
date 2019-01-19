@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import DeploymentEntry from './deployment_entry';
+import DeploymentEntry from './deploymentEntry';
 
 const Deployment = props => {
   let deploymentColor = '';

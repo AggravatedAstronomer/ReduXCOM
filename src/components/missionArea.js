@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import MissionSoldier from './mission_soldier';
+import MissionSoldier from './missionSoldier';
 
 const MissionArea = props => {
   let operationUI = null;

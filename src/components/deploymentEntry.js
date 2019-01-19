@@ -4,7 +4,6 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 
 const DeploymentEntry = props => {
-  console.log(props);
   return (
     <tr onClick={() => props.deploySoldier(props.soldier)} className="soldier-line">
       <td>
