@@ -9,6 +9,71 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import operationNames from './utils/operationNames';
 import recruitmentPool from './utils/recruitmentPool';
 
+const initialState = {
+  user: '',
+  editingUser: true,
+  viewingRoster: false,
+  resetConfirm: false,
+  abortConfirm: false,
+  missionInProgress: false,
+  aliensVisible: [
+    {
+      name: 'Sectoid',
+    },
+    {
+      name: 'Sectoid',
+    },
+    {
+      name: 'Sectoid',
+    },
+  ],
+  missionTurnCounter: 0,
+  missionNumber: 0,
+  credits: 500,
+  soldiersOnMission: [],
+  maxDeployedSoldiers: 4,
+  recruitmentPool,
+  soldiers: [
+    {
+      name: 'Patientzer0',
+      rank: 1,
+      class: 'Rookie',
+      status: 'Healthy',
+      kills: 0,
+    },
+    {
+      name: 'Tegularius',
+      rank: 1,
+      class: 'Rookie',
+      status: 'Healthy',
+      kills: 0,
+    },
+    {
+      name: 'Azimuth',
+      rank: 1,
+      class: 'Rookie',
+      status: 'Healthy',
+      kills: 0,
+    },
+    {
+      name: 'Jc2k',
+      rank: 1,
+      class: 'Rookie',
+      status: 'Healthy',
+      kills: 0,
+    },
+  ],
+  prevMission: null,
+  nextMission: {
+    name:
+      operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
+      ' ' +
+      operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
+    difficulty: 'Easy',
+  },
+  postMissionScreen: false,
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'startCampaign':
@@ -83,59 +148,7 @@ const reducer = (state, action) => {
     case 'cancelReset':
       return (state = { ...state, resetConfirm: false });
     case 'resetGame':
-      return (state = {
-        ...state,
-        user: '',
-        editingUser: true,
-        viewingRoster: false,
-        resetConfirm: false,
-        abortConfirm: false,
-        missionInProgress: false,
-        missionTurnCounter: 0,
-        missionNumber: 0,
-        credits: 500,
-        soldiersOnMission: [],
-        maxDeployedSoldiers: 4,
-        soldiers: [
-          {
-            name: 'Patientzer0',
-            rank: 1,
-            class: 'Rookie',
-            status: 'Healthy',
-            kills: 0,
-          },
-          {
-            name: 'Tegularius',
-            rank: 1,
-            class: 'Rookie',
-            status: 'Healthy',
-            kills: 0,
-          },
-          {
-            name: 'Azimuth',
-            rank: 1,
-            class: 'Rookie',
-            status: 'Healthy',
-            kills: 0,
-          },
-          {
-            name: 'Jc2k',
-            rank: 1,
-            class: 'Rookie',
-            status: 'Healthy',
-            kills: 0,
-          },
-        ],
-        prevMission: null,
-        nextMission: {
-          name:
-            operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
-            ' ' +
-            operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
-          difficulty: 'Easy',
-        },
-        postMissionScreen: false,
-      });
+      return initialState;
     case 'promotions':
       let newSoldierStates = [...state.soldiers];
       action.payload.forEach(promotion => {
@@ -153,75 +166,7 @@ const reducer = (state, action) => {
   }
 };
 
-const store = createStore(
-  reducer,
-  {
-    user: '',
-    editingUser: true,
-    viewingRoster: false,
-    resetConfirm: false,
-    abortConfirm: false,
-    missionInProgress: false,
-    missionTurnCounter: 0,
-    missionNumber: 0,
-    credits: 500,
-    alienAlloys: 0,
-    soldiersOnMission: [],
-    maxDeployedSoldiers: 4,
-    recruitmentPool,
-    soldiers: [
-      {
-        name: 'Patientzer0',
-        rank: 1,
-        class: 'Rookie',
-        status: 'Healthy',
-        kills: 0,
-      },
-      {
-        name: 'Tegularius',
-        rank: 1,
-        class: 'Rookie',
-        status: 'Wounded',
-        kills: 0,
-      },
-      {
-        name: 'Azimuth',
-        rank: 1,
-        class: 'Rookie',
-        status: 'Gravely Wounded',
-        kills: 0,
-      },
-      {
-        name: 'Jc2k',
-        rank: 1,
-        class: 'Rookie',
-        status: 'Healthy',
-        kills: 0,
-      },
-    ],
-    aliensVisible: [
-      {
-        name: 'Sectoid',
-      },
-      {
-        name: 'Sectoid',
-      },
-      {
-        name: 'Sectoid',
-      },
-    ],
-    prevMission: null,
-    nextMission: {
-      name:
-        operationNames.adjectives[Math.floor(Math.random() * operationNames.adjectives.length)] +
-        ' ' +
-        operationNames.nouns[Math.floor(Math.random() * operationNames.nouns.length)],
-      difficulty: 'Easy',
-    },
-    postMissionScreen: false,
-  },
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => {
   // console.log('store changed', store.getState());
