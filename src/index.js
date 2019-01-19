@@ -20,7 +20,8 @@ const reducer = (state, action) => {
     case 'viewRoster':
       return (state = { ...state, viewingRoster: !state.viewingRoster, postMissionScreen: false });
     case 'recruitSoldier':
-      const randomRecruitName = state.recruitmentPool[Math.floor(Math.random() * state.recruitmentPool.length)];
+      const pool = state.recruitmentPool;
+      const randomRecruitName = pool[Math.floor(Math.random() * pool.length)];
       const recruit = {
         name: randomRecruitName,
         rank: 1,
@@ -28,10 +29,12 @@ const reducer = (state, action) => {
         status: 'Healthy',
         kills: 0,
       };
+      const recruitIndex = state.recruitmentPool.indexOf(randomRecruitName);
+      pool.splice(recruitIndex, 1);
       return (state = {
         ...state,
         soldiers: state.soldiers.concat(recruit),
-        recruitmentPool: state.recruitmentPool.filter((name, randomRecruitName) => name !== randomRecruitName),
+        recruitmentPool: pool,
         credits: state.credits - 50,
       });
     case 'deploySoldier':

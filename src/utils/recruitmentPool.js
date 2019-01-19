@@ -1,5 +1,5 @@
 const recruitmentPool = [
-  'Patientzer0',
+  //   'Patientzer0',
   'Shtev',
   'Lydia',
   'Fig',
@@ -15,9 +15,9 @@ const recruitmentPool = [
   'Plumdog',
   'Toomuchinformation',
   'Joethedough',
-  'Jc2k',
+  //   'Jc2k',
   'Scunnydelight',
-  'Azimuth',
+  //   'Azimuth',
   'Twom',
   'TomDS',
 ];
