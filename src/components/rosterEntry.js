@@ -7,7 +7,7 @@ const RosterEntry = props => {
   const { name, soldierClass, rank, kills, status } = props.soldier;
   const rosterClass = props.soldiersOnMission.length === props.maxDeployedSoldiers ? ' max-deployed' : '';
   return (
-    <tr onClick={() => props.deploySoldier(props.soldier)} className={'soldier-line' + rosterClass}>
+    <tr onClick={props.assignable ? () => props.deploySoldier(props.soldier) : ''} className={'soldier-line' + rosterClass}>
       <td>
         <p className="roster-entry">{name}</p>
       </td>

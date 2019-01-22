@@ -3,7 +3,7 @@ import '../App.css';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 
-const RosterEntry = props => {
+const MissionSoldier = props => {
   let status = null;
   if (props.obj.status === 'Healthy') {
     status = <text className="healthy">Healthy</text>;
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RosterEntry);
+)(MissionSoldier);

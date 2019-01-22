@@ -53,7 +53,7 @@ const GameArea = props => {
                 </tr>
                 {!isEmpty(props.soldiers) &&
                   props.soldiers.map(soldier => {
-                    return <RosterEntry soldier={soldier} key={soldier.name} />;
+                    return <RosterEntry assignable={true} soldier={soldier} key={soldier.name} />;
                   })}
               </tbody>
             </table>
@@ -82,7 +82,7 @@ const GameArea = props => {
                   <th className="roster-header">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
-                {!isEmpty(props.prevMission.participation) && props.prevMission.participation.map((soldier, i) => <RosterEntry soldier={soldier} key={i} />)}
+                {!isEmpty(props.prevMission.participation) && props.prevMission.participation.map((soldier, i) => <RosterEntry assignable={false} soldier={soldier} key={i} />)}
               </tbody>
             </table>
           </div>
