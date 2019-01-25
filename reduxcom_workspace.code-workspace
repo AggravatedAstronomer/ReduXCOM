@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"eslint.autoFixOnSave": true,
+		"prettier.trailingComma": "es5",
+		"prettier.printWidth": 160,
+		"editor.formatOnSave": true,
+		"prettier.singleQuote": true
+	  }
+}
