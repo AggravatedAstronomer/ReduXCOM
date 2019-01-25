@@ -16,18 +16,12 @@ const Hostiles = props => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    aliensVisible: state.aliensVisible,
-    missionInProgress: state.missionInProgress,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapStateToProps = state => ({
+  aliensVisible: state.aliensVisible,
+  missionInProgress: state.missionInProgress,
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Hostiles);

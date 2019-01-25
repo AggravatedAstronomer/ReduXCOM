@@ -1,45 +1,41 @@
 import React from 'react';
 import '../App.css';
-import * as actions from "../actions/actions";
+import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import SideButton from './sideButton';
 
-const Reset = (props) => {
-  if (props.missionNumber > 0 && props.resetConfirm === false) {
-    return (
-    <div onClick={(e) => props.promptReset() } className="side-option">
-      <p id="reset"> Reset ></p>
+const Reset = props => {
+  const { resetConfirm } = props;
+  return (
+    <div>
+      {resetConfirm ? (
+        <div className="side-option">
+          <span id="reset">
+            <span id="reset-cancel" onClick={e => props.cancelReset()} className="glyphicon glyphicon-remove pull-left icon-button" />
+            <span id="reset-text">&lt; Confirm &gt;</span>
+            <span id="reset-confirm" onClick={e => props.reset()} className="glyphicon glyphicon-ok pull-right icon-button" />
+          </span>
+        </div>
+      ) : (
+        <div onClick={e => props.promptReset()} className="side-option">
+          <span id="reset"> Reset ></span>
+        </div>
+      )}
     </div>
-    );
-  } else if (props.missionNumber > 0 && props.resetConfirm === true) {
-    return (
-      <div className="side-option">
-        <p id="reset">
-          <span id="reset-cancel" onClick={(e) => props.cancelReset() } className="glyphicon glyphicon-remove pull-left icon-button"></span>
-          <span id="reset-text">&lt; Confirm &gt;</span>
-          <span id="reset-confirm" onClick={(e) => props.reset() } className="glyphicon glyphicon-ok pull-right icon-button"></span>
-        </p>
-      </div>
-    )
-  } else {
-    return (
-      null
-    );
-  }
-}
+  );
+};
 
-const mapStateToProps = (state) => {
-  return {
-    missionNumber: state.missionNumber,
-    resetConfirm: state.resetConfirm,
-  }
-}
+const mapStateToProps = state => ({
+  resetConfirm: state.resetConfirm,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    promptReset: () => dispatch(actions.promptReset()),
-    cancelReset: () => dispatch(actions.cancelReset()),
-    reset: () => dispatch(actions.resetGame()),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  promptReset: () => dispatch(actions.promptReset()),
+  cancelReset: () => dispatch(actions.cancelReset()),
+  reset: () => dispatch(actions.resetGame()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Reset);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Reset);

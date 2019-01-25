@@ -17,17 +17,11 @@
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-  background-color: #293c49;
-  background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
-  width: 100%;
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  background: #100e10; /* For browsers that do not support gradients */
+  background-color: #100e10;
+  font-size: 1.25vh;
   height: 100vh;
-  margin: 0 auto;
 }
 
 p {
@@ -43,41 +37,23 @@ p {
 }
 
 .title {
-  font-family: 'sans-serif';
-  color: #bafaff;
-  text-shadow: 0px 8px 5px black;
-  border-style: solid;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-bottom-width: 5px;
-  border-color: #111;
-  font-size: 85px;
-  letter-spacing: 5px;
-  text-align: center;
-  padding: 0px;
-  margin: 0px;
-  background-color: #293c49;
-  background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(bottom, #293c49, black); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(top, #293c49, black); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(top, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to top, #293c49, black); /* Standard syntax */
+  font-size: 3vh;
+}
+
+.center-row {
+  height: 580px;
 }
 
 .main-area {
-  height: 725px;
-  background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
+  background-color: #293c49;
+  background: -webkit-linear-gradient(left, #293c49, #100e10); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #293c49, #100e10); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #293c49, #100e10); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #293c49, #100e10); /* Standard syntax */
 }
 
 .game-area {
-  height: 540;
-  width: 960px;
   border-radius: 45px 45px;
   border-left: 10px solid #bafaff;
   border-right: 10px solid #bafaff;
@@ -94,16 +70,13 @@ p {
 #game-area-contents {
   position: absolute;
   padding-top: 10px;
-  padding-right: 0px;
+  padding-right: 50px;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: right;
-  width: 960px;
-  height: 540px;
-  max-width: 1850px;
-  font-size: 24px;
+  width: 100%;
 }
 
 .game-area-image-container {
@@ -116,16 +89,14 @@ p {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  position: absolute;
   width: auto;
   height: 540px;
   opacity: 0.4;
-  z-index: -1;
+  z-index: 0;
 }
 
 #roster-title {
   font-family: 'sans-serif';
-  font-size: 60px;
   margin: 0px;
   padding: 0px;
   text-align: center;
@@ -133,7 +104,6 @@ p {
 }
 
 #debriefing-operation {
-  font-size: 30px;
   margin: 0px;
   padding: 0px;
   text-align: center;
@@ -147,21 +117,12 @@ p {
 .roster-header {
   font-family: 'sans-serif';
   font-weight: normal;
-  font-size: 30px;
+  padding-left: 10px;
 }
 
 .roster-entry {
-  font-size: 14px;
   margin: 0px;
-  margin-left: 10px;
-}
-
-.soldier-line.max-deployed:hover {
-  color: red;
-}
-
-.soldier-line.max-deployed:active {
-  background-color: red;
+  padding-left: 10px;
 }
 
 thead {
@@ -170,11 +131,11 @@ thead {
 }
 
 #roster-table {
-  width: 890px;
+  width: 100%;
 }
 
 #deployment-table {
-  width: 400px;
+  width: 100%;
 }
 
 td {
@@ -187,10 +148,10 @@ td {
   text-align: center;
   background-color: #293c49;
   background: #293c49; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #293c49, black); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #293c49, black); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #293c49, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #293c49, black); /* Standard syntax */
+  background: -webkit-linear-gradient(left, #293c49, #100e10); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #293c49, #100e10); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #293c49, #100e10); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #293c49, #100e10); /* Standard syntax */
 }
 
 .visible-alien-container {
@@ -206,23 +167,21 @@ td {
 
 .alien-info {
   text-align: center;
-  font-size: 16px;
   font-family: 'Techno';
 }
 
 .mission-area {
-  position: absolute;
+  left: 5px;
+  position: relative;
   width: 100%;
-  max-width: 2560px;
-  height: 800px;
+  height: 100%;
   overflow: hidden;
-  background-color: black;
-  border-top-width: 10px;
+  background-color: #100e10;
   border-color: #bafaff;
   border-style: solid;
   border-left: 0px;
   border-right: 0px;
-  border-bottom-width: 10px;
+  border-bottom: 0px;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -237,11 +196,12 @@ td {
 }
 
 #mission-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
   font-family: 'sans-serif';
-  text-shadow: 0px 8px 5px black;
+  text-shadow: 0px 8px 5px #100e10;
   text-align: center;
-  font-size: 40px;
   width: 100%;
 }
 
@@ -252,22 +212,18 @@ td {
   left: 0;
   right: 0;
   width: 100%;
-  height: 540px;
-  max-width: 1850px;
-  font-size: 24px;
-  z-index: 2;
+  z-index: 1;
   padding-left: 50px;
 }
 
 #mission-area-image {
   display: block;
-  bottom: 150px;
   position: relative;
-  width: 100%;
-  max-width: 2560px;
+  width: auto;
+  max-width: 100%;
   height: auto;
   opacity: 0.6;
-  z-index: 1;
+  z-index: 0;
 }
 
 #pending-spinner {
@@ -276,34 +232,27 @@ td {
 
 #next-operation {
   text-align: left;
-  font-size: 30px;
   padding-top: 30px;
-  line-height: 30px;
 }
 
 #operation-name {
   font-family: 'XCOM';
   padding-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 0px;
 }
 
 .green-deploy {
-  font-size: 25px;
   color: #77fc6f;
 }
 
 .yellow-deploy {
-  font-size: 25px;
   color: yellow;
 }
 
 .red-deploy {
-  font-size: 25px;
   color: red;
-}
-
-.difficulty {
-  font-size: 20px;
 }
 
 .easy-mission {
@@ -340,7 +289,6 @@ td {
 
 .mission-soldier-row {
   padding-bottom: 20px;
-  font-size: 15px;
 }
 
 .mission-soldier {
@@ -350,12 +298,7 @@ td {
 
 .soldier-info {
   width: 350px;
-  font-size: 12px;
   text-align: left;
-}
-
-.soldier-actions {
-  font-size: 30px;
 }
 
 .ability {
@@ -363,75 +306,41 @@ td {
   -moz-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
-  font-size: 20px;
+  padding-left: 50px;
 }
 
 .ability:hover {
   color: #77fc6f;
-  text-shadow: 0px 0px 50px black;
+  text-shadow: 0px 0px 50px #100e10;
   cursor: pointer;
 }
 
 .ability:active {
-  color: black;
+  color: #100e10;
   text-shadow: 0px 0px 5px #77fc6f;
   cursor: pointer;
 }
 
 .ability-info {
-  font-size: 12px;
-  text-align: center;
-}
-
-.fire {
-  width: 100px;
-  text-align: center;
-}
-
-.overwatch {
-  width: 100px;
-  text-align: center;
-}
-
-.hunker {
-  width: 200px;
-  text-align: center;
-}
-
-.grenade {
-  width: 200px;
-  text-align: center;
-}
-
-.move-1 {
-  width: 100px;
-  text-align: center;
-}
-
-.move-2 {
-  width: 100px;
   text-align: center;
 }
 
 #deployment-title {
   position: relative;
   font-family: 'sans-serif';
-  text-shadow: 0px 8px 5px black;
-  font-size: 40px;
+  text-shadow: 0px 8px 5px #100e10;
 }
 
 #deployment-selection {
-  font-size: 12px;
-  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
 }
 
 .soldier-line {
   text-align: center;
   text-shadow: 0px 0px 5px cyan;
   background: rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  width: 100%;
-  height: 20px;
   cursor: pointer;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -445,16 +354,44 @@ td {
 
 .soldier-line:active {
   background-color: #77fc6f;
-  color: black;
+  color: #100e10;
+}
+
+.soldier-line.max-deployed:hover {
+  color: red;
+}
+
+.soldier-line.max-deployed:active {
+  background-color: red;
+}
+
+#comms-box {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 5px;
+  top: 0;
+  right: 0;
+  border-radius: 10px 10px;
+  border-left: 5px double rgba(0, 255, 140, 1);
+  border-right: 5px double rgba(0, 255, 140, 1);
+  border-bottom: 5px double rgba(0, 255, 140, 1);
+  border-top: 5px double rgba(0, 255, 140, 1);
+  width: 119px;
+  height: 119px;
+}
+
+#bradford {
+  position: relative;
+  opacity: 0.6;
 }
 
 .welcome {
   cursor: default;
   padding-top: 25px;
   text-align: center;
-  font-size: 20px;
   height: 75px;
-  text-shadow: 0px 8px 5px black;
+  text-shadow: 0px 8px 5px #100e10;
+  font-size: 2vh;
 }
 
 .icon-button {
@@ -478,7 +415,6 @@ td {
   outline: none;
   margin-left: 0px;
   padding-left: none;
-  font-size: 30px;
   left: none;
   right: none;
 }
@@ -491,16 +427,14 @@ td {
   outline: none;
   margin-left: 0px;
   padding-right: none;
-  font-size: 30px;
 }
 
 #identify {
   font-family: sans-serif;
-  background-color: black;
+  background-color: #100e10;
   text-indent: 20px;
   height: 50px;
   width: 400px;
-  line-height: 100%;
 }
 
 :hover::-webkit-input-placeholder {
@@ -556,18 +490,8 @@ td {
 }
 
 .side-menu {
-  height: 650px;
-  padding-top: 0px;
-  padding-bottom: 100px;
-}
-
-.col-sm-3.side-menu-right {
-  left: 20px;
-  width: 450px;
-}
-
-.side-menu-right tr {
-  font-size: 12px;
+  margin-top: 20px;
+  height: auto;
 }
 
 #reset {
@@ -578,14 +502,6 @@ td {
   color: red;
 }
 
-.col-sm-6.side-logo {
-  padding-top: 0px;
-  height: 650px;
-  z-index: 0;
-  padding-bottom: 100px;
-  width: 960px;
-}
-
 #xcom-alpha-logo {
   margin-top: 100px;
   margin-left: auto;
@@ -594,6 +510,8 @@ td {
 }
 
 .side-option {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   text-shadow: 0px 0px 5px cyan;
   border-radius: 45px 45px;
@@ -613,11 +531,9 @@ td {
   transition: all 0.2s ease-out;
 }
 
-.side-option p {
+.side-option span {
   width: 100%;
   position: relative;
-  bottom: 10px;
-  font-size: 16px;
 }
 
 .side-option:hover {
@@ -628,9 +544,9 @@ td {
 
 .side-option:active {
   background-color: #77fc6f;
-  color: black;
-  border-left: 10px solid black;
-  border-right: 10px solid black;
+  color: #100e10;
+  border-left: 10px solid #100e10;
+  border-right: 10px solid #100e10;
 }
 
 .side-option-disabled {
@@ -642,7 +558,6 @@ td {
   border-bottom: 10px solid transparent;
   border-top: 10px solid transparent;
   background: #111;
-  padding: 30px;
   width: 80%;
   height: 20px;
   margin-bottom: 50px;
@@ -653,11 +568,10 @@ td {
   transition: all 0.2s ease-out;
 }
 
-.side-option-disabled p {
+.side-option-disabled span {
   width: 100%;
   position: relative;
   bottom: 10px;
-  font-size: 16px;
   color: #333;
 }
 
@@ -669,11 +583,28 @@ td {
 
 .App-header {
   text-align: center;
-  background-color: black;
-  height: 210px;
+  height: 50px;
   padding: 0px;
-  background-image: url('./img/XCOM_2_logo_static.jpg');
+  background-image: url('./img/logo_alpha.png');
+  background-size: 10%;
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;
+}
+
+#comms-dialogue {
+  border-radius: 10px 10px;
+  border-left: 1px groove #bafaff;
+  border-right: 1px groove #bafaff;
+  border-bottom: 1px groove #bafaff;
+  border-top: 1px groove #bafaff;
+  position: absolute;
+  top: 10px;
+  right: 123px;
+  width: 30%;
+}
+
+.footer {
+  height: auto;
+  background: #100e10;
 }

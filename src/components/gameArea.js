@@ -40,15 +40,17 @@ const GameArea = props => {
         </div>
         <div id="game-area-contents">
           <div id="roster-container">
-            <p id="roster-title">ROSTER</p>
+            <p className="title" id="roster-title">
+              ROSTER
+            </p>
             <p className="pull-right">CREDITS: §{props.credits}</p>
             <table id="roster-table">
               <tbody>
                 <tr>
                   <th className="roster-header">NAME</th>
                   <th className="roster-header">CLASS</th>
-                  <th className="roster-header">RANK</th>
-                  <th className="roster-header">KILLS</th>
+                  <th className="roster-header text-center">RANK</th>
+                  <th className="roster-header text-center">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
                 {!isEmpty(props.soldiers) &&
@@ -69,7 +71,9 @@ const GameArea = props => {
         </div>
         <div id="game-area-contents">
           <div id="roster-container">
-            <p id="roster-title">DEBRIEFING</p>
+            <p className="title" id="roster-title">
+              DEBRIEFING
+            </p>
             <p id="debriefing-operation">OPERATION {props.prevMission.name.toUpperCase()}</p>
             <p>CREDITS: §{props.credits}</p>
             <p>ALLOYS: {props.alienAlloys}</p>
@@ -82,7 +86,8 @@ const GameArea = props => {
                   <th className="roster-header">KILLS</th>
                   <th className="roster-header">STATUS</th>
                 </tr>
-                {!isEmpty(props.prevMission.participation) && props.prevMission.participation.map((soldier, i) => <RosterEntry assignable={false} soldier={soldier} key={i} />)}
+                {!isEmpty(props.prevMission.participation) &&
+                  props.prevMission.participation.map((soldier, i) => <RosterEntry assignable={false} soldier={soldier} key={i} />)}
               </tbody>
             </table>
           </div>
@@ -94,24 +99,18 @@ const GameArea = props => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    missionNumber: state.missionNumber,
-    credits: state.credits,
-    alienAlloys: state.alienAlloys,
-    viewingRoster: state.viewingRoster,
-    postMissionScreen: state.postMissionScreen,
-    soldiers: state.soldiers,
-    missionInProgress: state.missionInProgress,
-    prevMission: state.prevMission,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapStateToProps = state => ({
+  missionNumber: state.missionNumber,
+  credits: state.credits,
+  alienAlloys: state.alienAlloys,
+  viewingRoster: state.viewingRoster,
+  postMissionScreen: state.postMissionScreen,
+  soldiers: state.soldiers,
+  missionInProgress: state.missionInProgress,
+  prevMission: state.prevMission,
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(GameArea);

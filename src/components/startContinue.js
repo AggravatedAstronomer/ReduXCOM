@@ -3,58 +3,35 @@ import '../App.css';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import RosterToggle from './rosterToggle';
+import SideButton from './sideButton';
+import { isEmpty } from 'ramda';
 
 const StartOrContinue = props => {
-  if (props.missionNumber > 0) {
-    let nextMission = <p />;
-    if (props.soldiersOnMission > 0) {
-      nextMission = (
-        <div onClick={e => props.launchMission()} className="side-option">
-          <p>Launch Mission ></p>
-        </div>
-      );
-    } else {
-      nextMission = (
-        <div className="side-option side-option-disabled">
-          <p>Launch Mission ></p>
-        </div>
-      );
-    }
+  const { user, missionNumber } = props;
+  const missionReady = !isEmpty(props.soldiersOnMission);
+  console.log(missionReady);
+  if (user && missionNumber > 0) {
     return (
       <div>
-        {nextMission}
+        <SideButton text="Launch Mission >" action={() => props.launchMission()} disabled={!missionReady} />
         <RosterToggle />
       </div>
     );
-  } else if (props.user) {
-    return (
-      <div onClick={e => props.startCampaign()} className="side-option">
-        <p>Start Game ></p>
-      </div>
-    );
   } else {
-    return (
-      <div className="side-option-disabled">
-        <p>Start Game ></p>
-      </div>
-    );
+    return <SideButton text="Start Campaign >" action={() => props.startCampaign()} disabled={!props.user} />;
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    missionNumber: state.missionNumber,
-    user: state.user,
-    soldiersOnMission: state.soldiersOnMission.length,
-  };
-};
+const mapStateToProps = state => ({
+  missionNumber: state.missionNumber,
+  user: state.user,
+  soldiersOnMission: state.soldiersOnMission,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    launchMission: () => dispatch(actions.launchMission()),
-    startCampaign: () => dispatch(actions.startCampaign()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  launchMission: () => dispatch(actions.launchMission()),
+  startCampaign: () => dispatch(actions.startCampaign()),
+});
 
 export default connect(
   mapStateToProps,

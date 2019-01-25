@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import MissionSoldier from './missionSoldier';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 const MissionArea = props => {
   let operationUI = null;
@@ -16,10 +17,11 @@ const MissionArea = props => {
     }
     operationUI = (
       <div>
-        <div className="col-sm-3" />
-        <div className="col-sm-9" id="next-operation">
-          <p id="operation-name">OPERATION {props.nextMission.name.toUpperCase()}</p>
-          <span className={nextMissionDifficultyColor}>Difficulty: {props.nextMission.difficulty}</span>
+        <div id="next-operation">
+          <p className="title text-center" id="operation-name">
+            OPERATION {props.nextMission.name.toUpperCase()}
+          </p>
+          <p className={nextMissionDifficultyColor + ' text-center'}>Difficulty: {props.nextMission.difficulty}</p>
         </div>
       </div>
     );
@@ -31,7 +33,9 @@ const MissionArea = props => {
           <img id="mission-area-image" src={require('../img/objectives.jpg')} alt="" />
         </div>
         <div id="mission-area-contents">
-          <p id="mission-title">M E N A C E 1 - 5</p>
+          <p className="title" id="mission-title">
+            M E N A C E 1 - 5
+          </p>
           <table id="menace-1-5">
             <tbody>
               {props.soldiersOnMission.map((soldier, i) => (
@@ -46,7 +50,7 @@ const MissionArea = props => {
     return (
       <div className="mission-area">
         {operationUI}
-        <img id="pending-spinner" src={require('../img/XCOM_Shield_Logo.gif')} alt="" />
+        <img id="pending-spinner" src={require('../img/logo.gif')} alt="" />
       </div>
     );
   } else {
@@ -54,20 +58,14 @@ const MissionArea = props => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    missionNumber: state.missionNumber,
-    missionInProgress: state.missionInProgress,
-    soldiersOnMission: state.soldiersOnMission,
-    nextMission: state.nextMission,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapStateToProps = state => ({
+  missionNumber: state.missionNumber,
+  missionInProgress: state.missionInProgress,
+  soldiersOnMission: state.soldiersOnMission,
+  nextMission: state.nextMission,
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(MissionArea);

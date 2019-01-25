@@ -9,22 +9,25 @@ import MissionArea from './components/missionArea';
 import UserName from './components/userName';
 import Deployment from './components/deployment';
 import Hostile from './components/hostile';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 const App = props => {
+  const { aliensVisible, missionInProgress, missionNumber } = props;
+  const gridSyle = { paddingLeft: 0, paddingRight: 10, marginLeft: 0, marginRight: 10 };
   let sideMenus = null;
   let alienUI = null;
-  if (props.missionInProgress === false) {
+  if (missionInProgress === false) {
     sideMenus = (
       <div>
         <StartOrContinue />
-        <Reset missionNumber={props.missionNumber} />
+        {missionNumber > 0 && <Reset />}
       </div>
     );
   } else {
     sideMenus = <MissionMenus />;
     alienUI = (
       <div className="hostiles">
-        {props.aliensVisible.map((alien, i) => (
+        {aliensVisible.map((alien, i) => (
           <Hostile obj={alien} key={i} />
         ))}
       </div>
@@ -32,37 +35,46 @@ const App = props => {
   }
   return (
     <div className="App">
-      <div className="App-header" />
-      {/* <h1 className="title">Browser Game</h1> */}
-      <div className="main-area">
-        <UserName />
-        <div className="col-sm-3 side-menu">{sideMenus}</div>
-        <div className="col-sm-6 side-logo">
-          <GameArea />
-        </div>
-        <div className="col-sm-3 side-menu side-menu-right">
-          <Deployment />
-        </div>
+      <div className="App-header">
+        <span id="comms-dialogue">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis posuere mauris vel elementum. Donec vitae augue elit. Nulla facilisi. Nulla
+          vel lorem et ex accumsan maximus.
+        </span>
       </div>
-      {alienUI}
-      <MissionArea />
+      <div className="main-area">
+        <Grid fluid style={gridSyle}>
+          <Row>
+            <UserName />
+          </Row>
+          <Row className="center-row">
+            <Col className="side-menu" xs={12} md={3}>
+              {sideMenus}
+            </Col>
+            <Col xs={12} md={6}>
+              <GameArea />
+            </Col>
+            <Col className="side-menu-right" xs={12} md={3}>
+              <Deployment />
+            </Col>
+          </Row>
+          <Row>
+            {alienUI}
+            <MissionArea />
+          </Row>
+        </Grid>
+      </div>
+      <div className="footer" />
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    missionNumber: state.missionNumber,
-    missionInProgress: state.missionInProgress,
-    aliensVisible: state.aliensVisible,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapStateToProps = state => ({
+  missionNumber: state.missionNumber,
+  missionInProgress: state.missionInProgress,
+  aliensVisible: state.aliensVisible,
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(App);

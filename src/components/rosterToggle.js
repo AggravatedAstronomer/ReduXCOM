@@ -8,26 +8,26 @@ const RosterEntry = props => {
   if (props.credits >= 50 && props.soldiers.length < 18) {
     recruitButton = (
       <div onClick={e => props.recruitSoldier()} className="side-option">
-        <p>
+        <span>
           Hire Recruit <span className="cost-ok">§50</span> >
-        </p>
+        </span>
       </div>
     );
   } else if (props.soldiers.length >= 18) {
     recruitButton = (
       <div className="side-option side-option-disabled">
-        <p>
+        <span>
           <span className="cost-error">Barracks Full</span> >
-        </p>
+        </span>
       </div>
     );
   } else {
     recruitButton = (
       <div className="side-option side-option-disabled">
-        <p>
+        <span>
           {' '}
           Hire Recruit <span className="cost-error">§50</span> >
-        </p>
+        </span>
       </div>
     );
   }
@@ -35,7 +35,7 @@ const RosterEntry = props => {
     return (
       <div>
         <div onClick={e => props.viewRoster()} className="side-option">
-          <p>Main View ></p>
+          <span>Main View ></span>
         </div>
         {recruitButton}
       </div>
@@ -43,26 +43,22 @@ const RosterEntry = props => {
   } else {
     return (
       <div onClick={e => props.viewRoster()} className="side-option">
-        <p>Roster View ></p>
+        <span>Roster View ></span>
       </div>
     );
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    soldiers: state.soldiers,
-    viewingRoster: state.viewingRoster,
-    credits: state.credits,
-  };
-};
+const mapStateToProps = state => ({
+  soldiers: state.soldiers,
+  viewingRoster: state.viewingRoster,
+  credits: state.credits,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    viewRoster: () => dispatch(actions.viewRoster()),
-    recruitSoldier: () => dispatch(actions.recruitSoldier()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  viewRoster: () => dispatch(actions.viewRoster()),
+  recruitSoldier: () => dispatch(actions.recruitSoldier()),
+});
 
 export default connect(
   mapStateToProps,

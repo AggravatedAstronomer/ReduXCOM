@@ -15,10 +15,10 @@ const RosterEntry = props => {
         <p className="roster-entry">{soldierClass}</p>
       </td>
       <td>
-        <p className="roster-entry">{rank}</p>
+        <p className="roster-entry text-center">{rank}</p>
       </td>
       <td>
-        <p className="roster-entry">{kills}</p>
+        <p className="roster-entry text-center">{kills}</p>
       </td>
       <td>
         <p className="roster-entry">{status}</p>
@@ -27,18 +27,14 @@ const RosterEntry = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    soldiersOnMission: state.soldiersOnMission,
-    maxDeployedSoldiers: state.maxDeployedSoldiers,
-  };
-};
+const mapStateToProps = state => ({
+  soldiersOnMission: state.soldiersOnMission,
+  maxDeployedSoldiers: state.maxDeployedSoldiers,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deploySoldier: soldier => dispatch(actions.deploySoldier(soldier)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  deploySoldier: soldier => dispatch(actions.deploySoldier(soldier)),
+});
 
 export default connect(
   mapStateToProps,

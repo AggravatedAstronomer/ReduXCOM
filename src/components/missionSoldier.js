@@ -39,12 +39,12 @@ const MissionSoldier = props => {
         <td className="ability hunker">
           <span className="glyphicon glyphicon-tower" />
           <br />
-          <text className="ability-info">Hunker Down</text>
+          <text className="ability-info">Hunker</text>
         </td>
         <td className="ability grenade">
           <span className="glyphicon glyphicon glyphicon-fire" />
           <br />
-          <text className="ability-info">Throw Grenade</text>
+          <text className="ability-info">Frag</text>
         </td>
         <td className="ability move-1">
           <span className="glyphicon glyphicon-play" />
@@ -61,18 +61,14 @@ const MissionSoldier = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    soldiersOnMission: state.soldiersOnMission,
-    maxDeployedSoldiers: state.maxDeployedSoldiers,
-  };
-};
+const mapStateToProps = state => ({
+  soldiersOnMission: state.soldiersOnMission,
+  maxDeployedSoldiers: state.maxDeployedSoldiers,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deploySoldier: soldier => dispatch(actions.deploySoldier(soldier)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  deploySoldier: soldier => dispatch(actions.deploySoldier(soldier)),
+});
 
 export default connect(
   mapStateToProps,

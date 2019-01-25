@@ -16,11 +16,11 @@ const Deployment = props => {
   if (props.missionNumber > 0 && !props.missionInProgress) {
     return (
       <div id="deployment-selection">
-        <p id="deployment-title">
+        <p className="title" id="deployment-title">
           DEPLOYMENT
-          <p className={deploymentColor}>
-            [{props.soldiersOnMission.length} / {props.maxDeployedSoldiers}]
-          </p>
+        </p>
+        <p className={deploymentColor}>
+          [{props.soldiersOnMission.length} / {props.maxDeployedSoldiers}]
         </p>
         <table id="deployment-table">
           <tbody>
@@ -40,20 +40,14 @@ const Deployment = props => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    missionNumber: state.missionNumber,
-    soldiersOnMission: state.soldiersOnMission,
-    maxDeployedSoldiers: state.maxDeployedSoldiers,
-    missionInProgress: state.missionInProgress,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapStateToProps = state => ({
+  missionNumber: state.missionNumber,
+  soldiersOnMission: state.soldiersOnMission,
+  maxDeployedSoldiers: state.maxDeployedSoldiers,
+  missionInProgress: state.missionInProgress,
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Deployment);
